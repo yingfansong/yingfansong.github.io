@@ -8,5 +8,11 @@
 <h3 id="2-Git分支操作"><a href="#2-Git分支操作" class="headerlink" title="2.Git分支操作"></a>2.Git分支操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//切换分支</span><br><span class="line">git checkout master                      //切换分支</span><br><span class="line">//强制覆盖分支</span><br><span class="line">git push origin <span class="built_in">test</span>:master -f           //将<span class="built_in">test</span>分支强制（-f）推送到主分支master</span><br></pre></td></tr></table></figure>
 
 ]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git分支操作</tag>
+      </tags>
   </entry>
 </search>
