@@ -3,9 +3,9 @@
   <entry>
     <title>程序员的第一课——Git</title>
     <url>/2023/04/05/1.%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/</url>
-    <content><![CDATA[<h1 id="程序员的第一课——Git（一）"><a href="#程序员的第一课——Git（一）" class="headerlink" title="程序员的第一课——Git（一）"></a>程序员的第一课——Git（一）</h1><h3 id="Git强制覆盖本地代码"><a href="#Git强制覆盖本地代码" class="headerlink" title="Git强制覆盖本地代码"></a>Git强制覆盖本地代码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch --all   //拉取所有更新，不同步</span><br><span class="line"></span><br><span class="line">git reset --hard [分支] //本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+    <content><![CDATA[<h3 id="1-Git强制覆盖本地代码"><a href="#1-Git强制覆盖本地代码" class="headerlink" title="1.Git强制覆盖本地代码"></a>1.Git强制覆盖本地代码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git fetch --all   //拉取所有更新，不同步</span><br><span class="line">git reset --hard [分支] //本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)</span><br></pre></td></tr></table></figure>
 
-<h3 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//切换分支</span><br><span class="line">git checkout master                      //切换分支</span><br><span class="line"></span><br><span class="line">//强制覆盖分支</span><br><span class="line">git push origin <span class="built_in">test</span>:master -f           //将<span class="built_in">test</span>分支强制（-f）推送到主分支master</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h3 id="2-Git分支操作"><a href="#2-Git分支操作" class="headerlink" title="2.Git分支操作"></a>2.Git分支操作</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">//切换分支</span><br><span class="line">git checkout master                      //切换分支</span><br><span class="line">//强制覆盖分支</span><br><span class="line">git push origin <span class="built_in">test</span>:master -f           //将<span class="built_in">test</span>分支强制（-f）推送到主分支master</span><br></pre></td></tr></table></figure>
 
 ]]></content>
   </entry>

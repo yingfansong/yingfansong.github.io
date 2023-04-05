@@ -19,15 +19,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yingfansong.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="程序员的第一课——Git（一）Git强制覆盖本地代码1234git fetch --all   &#x2F;&#x2F;拉取所有更新，不同步git reset --hard [分支] &#x2F;&#x2F;本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)  Git分支操作123456&#x2F;&#x2F;切换分支git checkout master                      &#x2F;&#x2F;切换分支&#x2F;&#x2F;强制覆盖分支git push">
+    <meta name="description" content="1.Git强制覆盖本地代码12git fetch --all   &#x2F;&#x2F;拉取所有更新，不同步git reset --hard [分支] &#x2F;&#x2F;本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)  2.Git分支操作1234&#x2F;&#x2F;切换分支git checkout master                      &#x2F;&#x2F;切换分支&#x2F;&#x2F;强制覆盖分支git push origin test:ma">
 <meta property="og:type" content="article">
 <meta property="og:title" content="程序员的第一课——Git">
 <meta property="og:url" content="https://yingfansong.github.io/2023/04/05/1.%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/index.html">
 <meta property="og:site_name" content="WinFord">
-<meta property="og:description" content="程序员的第一课——Git（一）Git强制覆盖本地代码1234git fetch --all   &#x2F;&#x2F;拉取所有更新，不同步git reset --hard [分支] &#x2F;&#x2F;本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)  Git分支操作123456&#x2F;&#x2F;切换分支git checkout master                      &#x2F;&#x2F;切换分支&#x2F;&#x2F;强制覆盖分支git push">
+<meta property="og:description" content="1.Git强制覆盖本地代码12git fetch --all   &#x2F;&#x2F;拉取所有更新，不同步git reset --hard [分支] &#x2F;&#x2F;本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)  2.Git分支操作1234&#x2F;&#x2F;切换分支git checkout master                      &#x2F;&#x2F;切换分支&#x2F;&#x2F;强制覆盖分支git push origin test:ma">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-04-05T13:40:15.725Z">
-<meta property="article:modified_time" content="2023-04-05T13:50:38.628Z">
+<meta property="article:modified_time" content="2023-04-05T13:57:01.495Z">
 <meta property="article:author" content="WinFord">
 <meta property="article:tag" content="工作&amp;生活">
 <meta name="twitter:card" content="summary">
@@ -140,7 +140,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git%EF%BC%88%E4%B8%80%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">程序员的第一课——Git（一）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E5%BC%BA%E5%88%B6%E8%A6%86%E7%9B%96%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="nav-number">1.0.1.</span> <span class="nav-text">Git强制覆盖本地代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">1.0.2.</span> <span class="nav-text">Git分支操作</span></a></li></ol></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-Git%E5%BC%BA%E5%88%B6%E8%A6%86%E7%9B%96%E6%9C%AC%E5%9C%B0%E4%BB%A3%E7%A0%81"><span class="nav-number">1.</span> <span class="nav-text">1.Git强制覆盖本地代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-Git%E5%88%86%E6%94%AF%E6%93%8D%E4%BD%9C"><span class="nav-number">2.</span> <span class="nav-text">2.Git分支操作</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -211,7 +211,7 @@
       <span class="post-meta-item-text">发表于</span>
       
 
-      <time title="创建时间：2023-04-05 21:40:15 / 修改时间：21:50:38" itemprop="dateCreated datePublished" datetime="2023-04-05T21:40:15+08:00">2023-04-05</time>
+      <time title="创建时间：2023-04-05 21:40:15 / 修改时间：21:57:01" itemprop="dateCreated datePublished" datetime="2023-04-05T21:40:15+08:00">2023-04-05</time>
     </span>
 
   
@@ -220,7 +220,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>210</span>
+      <span>195</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -238,9 +238,9 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <h1 id="程序员的第一课——Git（一）"><a href="#程序员的第一课——Git（一）" class="headerlink" title="程序员的第一课——Git（一）"></a>程序员的第一课——Git（一）</h1><h3 id="Git强制覆盖本地代码"><a href="#Git强制覆盖本地代码" class="headerlink" title="Git强制覆盖本地代码"></a>Git强制覆盖本地代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all   //拉取所有更新，不同步</span><br><span class="line"></span><br><span class="line">git reset --hard [分支] //本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h3 id="1-Git强制覆盖本地代码"><a href="#1-Git强制覆盖本地代码" class="headerlink" title="1.Git强制覆盖本地代码"></a>1.Git强制覆盖本地代码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch --all   //拉取所有更新，不同步</span><br><span class="line">git reset --hard [分支] //本地代码同步线上最新版本(会覆盖本地所有与远程仓库上同名的文件)</span><br></pre></td></tr></table></figure>
 
-<h3 id="Git分支操作"><a href="#Git分支操作" class="headerlink" title="Git分支操作"></a>Git分支操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//切换分支</span><br><span class="line">git checkout master                      //切换分支</span><br><span class="line"></span><br><span class="line">//强制覆盖分支</span><br><span class="line">git push origin <span class="built_in">test</span>:master -f           //将<span class="built_in">test</span>分支强制（-f）推送到主分支master</span><br><span class="line"> </span><br></pre></td></tr></table></figure>
+<h3 id="2-Git分支操作"><a href="#2-Git分支操作" class="headerlink" title="2.Git分支操作"></a>2.Git分支操作</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//切换分支</span><br><span class="line">git checkout master                      //切换分支</span><br><span class="line">//强制覆盖分支</span><br><span class="line">git push origin <span class="built_in">test</span>:master -f           //将<span class="built_in">test</span>分支强制（-f）推送到主分支master</span><br></pre></td></tr></table></figure>
 
 
     </div>
@@ -291,7 +291,8 @@
     <span title="站点阅读时长">1 分钟</span>
   </span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  <div class="powered-by">
+    <!--由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动-->
   </div>
 
     </div>
