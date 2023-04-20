@@ -36,4 +36,40 @@
         <tag>微信支付</tag>
       </tags>
   </entry>
+  <entry>
+    <title>node版本管理利器--nvm的安装使用</title>
+    <url>/2023/04/20/3.nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com"><a href="#1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com" class="headerlink" title="1.[下载安装包](nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com))"></a>1.[下载安装包](<a href="https://nvm.uihtm.com/">nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com)</a>)</h2><p>​	在官网上针对您的系统进行相应的下载。下载完之后安装，都是傻瓜式的操作，这不多赘述。</p>
+<p>如果您有幸生活在“墙国”，需要配置淘宝镜像，才能正常使用该利器。</p>
+<h2 id="2-nvm淘宝镜像设置"><a href="#2-nvm淘宝镜像设置" class="headerlink" title="2.nvm淘宝镜像设置"></a>2.nvm淘宝镜像设置</h2><p>使用命令，查看配置文件所在目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm root</span><br></pre></td></tr></table></figure>
+
+<p>如果不出意外，应该会显示nvm的安装目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Current Root: C:\Users\winford\AppData\Roaming\nvm</span><br></pre></td></tr></table></figure>
+
+<p>copy一下，cd 进入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/4/20     21:11                v16.0.0</span><br><span class="line">d-----         2023/4/20     21:03                v16.14.1</span><br><span class="line">-a----         2015/9/30     14:09             86 elevate.cmd</span><br><span class="line">-a----         2015/9/30     14:09            348 elevate.vbs</span><br><span class="line">-a----         2015/9/30     14:09            491 install.cmd</span><br><span class="line">-a----         2015/9/30     14:09          15086 nodejs.ico</span><br><span class="line">-a----          2018/8/8      0:46        6150648 nvm.exe</span><br><span class="line">-a----         2023/4/20     21:02            175 settings.txt</span><br><span class="line">-a----         2023/4/20     20:57          14051 unins000.dat</span><br><span class="line">-a----         2023/4/20     20:56         737272 unins000.exe</span><br><span class="line">-a----         2023/4/20     20:57          11401 unins000.msg</span><br></pre></td></tr></table></figure>
+
+<p>大概是这样的目录结构</p>
+<p>打开setting.txt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root: C:\Users\winford\AppData\Roaming\nvm</span><br><span class="line">path: C:\Program Files\nodejs</span><br><span class="line"></span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+
+<p>加上下面两行代码就好了</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1-查看可下载的版本"><a href="#1-查看可下载的版本" class="headerlink" title="1.查看可下载的版本"></a>1.查看可下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list available</span><br><span class="line"></span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    20.0.0    |   18.16.0    |   0.12.18    |   0.11.16    |</span><br><span class="line">|    19.9.0    |   18.15.0    |   0.12.17    |   0.11.15    |</span><br><span class="line">|    19.8.1    |   18.14.2    |   0.12.16    |   0.11.14    |</span><br><span class="line">|    19.8.0    |   18.14.1    |   0.12.15    |   0.11.13    |</span><br><span class="line">|    19.7.0    |   18.14.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    19.6.1    |   18.13.0    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    19.6.0    |   18.12.1    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    19.5.0    |   18.12.0    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    19.4.0    |   16.20.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    19.3.0    |   16.19.1    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    19.2.0    |   16.19.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">|    19.1.0    |   16.18.1    |    0.12.7    |    0.11.5    |</span><br><span class="line">|    19.0.1    |   16.18.0    |    0.12.6    |    0.11.4    |</span><br><span class="line">|    19.0.0    |   16.17.1    |    0.12.5    |    0.11.3    |</span><br><span class="line">|   18.11.0    |   16.17.0    |    0.12.4    |    0.11.2    |</span><br><span class="line">|   18.10.0    |   16.16.0    |    0.12.3    |    0.11.1    |</span><br><span class="line">|    18.9.1    |   16.15.1    |    0.12.2    |    0.11.0    |</span><br><span class="line">|    18.9.0    |   16.15.0    |    0.12.1    |    0.9.12    |</span><br><span class="line">|    18.8.0    |   16.14.2    |    0.12.0    |    0.9.11    |</span><br><span class="line">|    18.7.0    |   16.14.1    |   0.10.48    |    0.9.10    |</span><br><span class="line"></span><br><span class="line">This is a partial list. For a complete list, visit https://nodejs.org/download/release</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-下载并安装特定版本"><a href="#2-下载并安装特定版本" class="headerlink" title="2.下载并安装特定版本"></a>2.下载并安装特定版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm install [版本号]</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看已下载的版本"><a href="#3-查看已下载的版本" class="headerlink" title="3.查看已下载的版本"></a>3.查看已下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list</span><br><span class="line"></span><br><span class="line">    16.14.1</span><br><span class="line">  * 16.0.0 (Currently using 64-bit executable)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-使用已安装的版本"><a href="#4-使用已安装的版本" class="headerlink" title="4.使用已安装的版本"></a>4.使用已安装的版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm use [已安装的版本号] ---需要管理员权限</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
 </search>
