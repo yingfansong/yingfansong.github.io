@@ -74,7 +74,7 @@
   </entry>
   <entry>
     <title>打开golang的大门</title>
-    <url>/2023/04/20/4.%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
+    <url>/2023/04/23/4.%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
     <content><![CDATA[<h1 id="1-配置go环境"><a href="#1-配置go环境" class="headerlink" title="1.配置go环境"></a>1.配置go环境</h1><h1 id="2-运行第一个go程序"><a href="#2-运行第一个go程序" class="headerlink" title="2.运行第一个go程序"></a>2.运行第一个go程序</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 <p>点击运行</p>
