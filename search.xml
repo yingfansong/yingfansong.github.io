@@ -1,53 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>微信支付从入门到入土——简单支付</title>
-    <url>/2023/04/09/2.%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
-    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
-
-<span id="more"></span>
-
-<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
-
-<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
-]]></content>
-      <categories>
-        <category>支付模块</category>
-      </categories>
-      <tags>
-        <tag>微信支付</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>打开golang的大门</title>
-    <url>/2023/04/23/4.%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
-    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/golang.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-配置go环境"><a href="#1-配置go环境" class="headerlink" title="1.配置go环境"></a>1.配置go环境</h1><h1 id="2-运行第一个go程序"><a href="#2-运行第一个go程序" class="headerlink" title="2.运行第一个go程序"></a>2.运行第一个go程序</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>点击运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GOROOT=C:\Program Files\Go <span class="comment">#gosetup</span></span><br><span class="line">GOPATH=C:\Users\winford\go <span class="comment">#gosetup</span></span><br><span class="line"><span class="string">&quot;C:\Program Files\Go\bin\go.exe&quot;</span> build -o C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe -gcflags <span class="string">&quot;all=-N -l&quot;</span> D:\project\go-test2\test.go <span class="comment">#gosetup</span></span><br><span class="line">C:\Users\winford\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175.plugins\go-plugin\lib\dlv\windows\dlv.exe --listen=127.0.0.1:63345 --headless=<span class="literal">true</span> --api-version=2 --check-go-version=<span class="literal">false</span> --only-same-user=<span class="literal">false</span> <span class="built_in">exec</span> C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe --</span><br><span class="line">API server listening at: 127.0.0.1:63345</span><br><span class="line">Hello, World!</span><br><span class="line">调试器 已完成，退出代码为 0</span><br></pre></td></tr></table></figure>
-
-<p>完成！</p>
-]]></content>
-      <categories>
-        <category>golang</category>
-      </categories>
-  </entry>
-  <entry>
     <title>两数之和--梦开始的地方</title>
-    <url>/2023/04/23/5.%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C--%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
+    <url>/2023/04/23/LeetCode/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C--%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
     <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
 
 <span id="more"></span>
@@ -92,7 +47,7 @@
   </entry>
   <entry>
     <title>node版本管理利器--nvm的安装使用</title>
-    <url>/2023/04/20/3.nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    <url>/2023/04/20/nvm/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
 
 <span id="more"></span>
@@ -131,25 +86,28 @@
       </tags>
   </entry>
   <entry>
-    <title>Docker简单入门</title>
-    <url>/2023/04/24/6.Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
+    <title>打开golang的大门</title>
+    <url>/2023/04/23/golang/%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
+    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/golang.jpg">
 
 <span id="more"></span>
 
-<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="1-配置go环境"><a href="#1-配置go环境" class="headerlink" title="1.配置go环境"></a>1.配置go环境</h1><h1 id="2-运行第一个go程序"><a href="#2-运行第一个go程序" class="headerlink" title="2.运行第一个go程序"></a>2.运行第一个go程序</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
+
+
+<p>点击运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GOROOT=C:\Program Files\Go <span class="comment">#gosetup</span></span><br><span class="line">GOPATH=C:\Users\winford\go <span class="comment">#gosetup</span></span><br><span class="line"><span class="string">&quot;C:\Program Files\Go\bin\go.exe&quot;</span> build -o C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe -gcflags <span class="string">&quot;all=-N -l&quot;</span> D:\project\go-test2\test.go <span class="comment">#gosetup</span></span><br><span class="line">C:\Users\winford\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175.plugins\go-plugin\lib\dlv\windows\dlv.exe --listen=127.0.0.1:63345 --headless=<span class="literal">true</span> --api-version=2 --check-go-version=<span class="literal">false</span> --only-same-user=<span class="literal">false</span> <span class="built_in">exec</span> C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe --</span><br><span class="line">API server listening at: 127.0.0.1:63345</span><br><span class="line">Hello, World!</span><br><span class="line">调试器 已完成，退出代码为 0</span><br></pre></td></tr></table></figure>
+
+<p>完成！</p>
 ]]></content>
       <categories>
-        <category>DevOps</category>
+        <category>golang</category>
       </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
   </entry>
   <entry>
     <title>程序员的第一课——Git</title>
-    <url>/2023/04/05/Untitled%20Folder/1.%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/</url>
+    <url>/2023/04/05/Git/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/</url>
     <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/git.jpg">
 
 <span id="more"></span>
@@ -166,6 +124,115 @@
       </categories>
       <tags>
         <tag>Git分支操作</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker简单入门</title>
+    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信支付从入门到入土——简单支付</title>
+    <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
+    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
+
+<span id="more"></span>
+
+<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
+
+<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
+]]></content>
+      <categories>
+        <category>支付模块</category>
+      </categories>
+      <tags>
+        <tag>微信支付</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>按身高排序</title>
+    <url>/2023/04/25/LeetCode/%E6%8C%89%E8%BA%AB%E9%AB%98%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-题目"><a href="#1-题目" class="headerlink" title="1.题目"></a>1.题目</h1><p>给你一个字符串数组 <code>names</code> ，和一个由 <strong>互不相同</strong> 的正整数组成的数组 <code>heights</code> 。两个数组的长度均为 <code>n</code> 。</p>
+<p>对于每个下标 <code>i</code>，<code>names[i]</code> 和 <code>heights[i]</code> 表示第 <code>i</code> 个人的名字和身高。</p>
+<p>请按身高 <strong>降序</strong> 顺序返回对应的名字数组 <code>names</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Mary&quot;,&quot;John&quot;,&quot;Emma&quot;], heights = [180,165,170]</span><br><span class="line">输出：[&quot;Mary&quot;,&quot;Emma&quot;,&quot;John&quot;]</span><br><span class="line">解释：Mary 最高，接着是 Emma 和 John 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Alice&quot;,&quot;Bob&quot;,&quot;Bob&quot;], heights = [155,185,150]</span><br><span class="line">输出：[&quot;Bob&quot;,&quot;Alice&quot;,&quot;Bob&quot;]</span><br><span class="line">解释：第一个 Bob 最高，然后是 Alice 和第二个 Bob 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == names.length == heights.length</code></li>
+<li><code>1 &lt;= n &lt;= 103</code></li>
+<li><code>1 &lt;= names[i].length &lt;= 20</code></li>
+<li><code>1 &lt;= heights[i] &lt;= 105</code></li>
+<li><code>names[i]</code> 由大小写英文字母组成</li>
+<li><code>heights</code> 中的所有值互不相同</li>
+</ul>
+<h1 id="2-题解"><a href="#2-题解" class="headerlink" title="2.题解"></a>2.题解</h1><p>Java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>手撕算法题</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见的排序算法--快速排序</title>
+    <url>/2023/04/23/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<h1 id="1-快速排序（QuickSort）"><a href="#1-快速排序（QuickSort）" class="headerlink" title="1.快速排序（QuickSort）"></a>1.快速排序（QuickSort）</h1><p>Java实现</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>golang实现</p>
+<figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+      </categories>
+      <tags>
+        <tag>手撕算法题</tag>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全网最火的流程引擎--flowable</title>
+    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>流程引擎</category>
+      </categories>
+      <tags>
+        <tag>flowable</tag>
       </tags>
   </entry>
 </search>
