@@ -255,4 +255,20 @@
         <tag>鸡尾酒</tag>
       </tags>
   </entry>
+  <entry>
+    <title>初识Kubernetes</title>
+    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style = "width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+
+<span id="more"></span>
+
+<h1 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h1><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h1 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h1>]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
 </search>
