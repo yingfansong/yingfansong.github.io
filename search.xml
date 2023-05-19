@@ -258,17 +258,52 @@
   <entry>
     <title>初识Kubernetes</title>
     <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style = "width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
 
 <span id="more"></span>
 
-<h1 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h1><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
-<h1 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h1>]]></content>
+<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
+<p>工作节点–是办事的</p>
+<p>主节点中：</p>
+<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
+<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
+<p>Controller-manager 状态管理者，重分配，重平衡</p>
+<p>scheduler 调度者 根据现有的资源进行分配</p>
+<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
+<p>工作节点：</p>
+<p>kubelet是接受命令的程序，并且上报目前的信息</p>
+<p>容器运行时（docker之类）</p>
+<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
+<p>kube-proxy是网络代理</p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<p>pause容器是每个Pod容器都存在的，</p>
+]]></content>
       <categories>
         <category>DevOps</category>
       </categories>
       <tags>
         <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打开golang的大门</title>
+    <url>/2023/04/23/Java/%E9%9B%86%E5%90%88/%E9%9B%86%E5%90%88/</url>
+    <content><![CDATA[<img style="width:400px" src = "">
+
+<span id="more"></span>
+
+<h2 id="1-脑图"><a href="#1-脑图" class="headerlink" title="1.脑图"></a>1.脑图</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">graph LR</span><br><span class="line">	集合--&gt;Collection</span><br><span class="line">	集合--&gt;Map</span><br><span class="line">	</span><br><span class="line">	Collection--&gt;List</span><br><span class="line">	Collection--&gt;Set</span><br><span class="line">	</span><br><span class="line">	Map--&gt;Hashtable</span><br><span class="line">	Map--&gt;HashMap</span><br><span class="line">	Map--&gt;TreeMap</span><br><span class="line">	Map--&gt;IdentityHashMap</span><br><span class="line">	</span><br><span class="line">	List--&gt;ArrayList</span><br><span class="line">	List--&gt;LinkedList</span><br><span class="line">	List--&gt;Vector</span><br><span class="line">	</span><br><span class="line">	Set--&gt;HashSet</span><br><span class="line">	Set--&gt;TreeSet</span><br><span class="line">	</span><br><span class="line">	HashMap--&gt;LinkedHashMap</span><br><span class="line">	HashMap--&gt;WeakHashMap</span><br><span class="line">	Vector--&gt;Stack </span><br><span class="line">	HashSet--&gt;LinkedhashSet</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java集合</tag>
+        <tag>集合</tag>
       </tags>
   </entry>
 </search>
