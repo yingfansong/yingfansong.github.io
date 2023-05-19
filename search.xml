@@ -1,6 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker简单入门</title>
+    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>程序员的第一课——Git</title>
+    <url>/2023/04/05/Git/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/</url>
+    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/git.jpg">
+
+<span id="more"></span>
+
+<h1 id="一、Git基操"><a href="#一、Git基操" class="headerlink" title="一、Git基操"></a>一、Git基操</h1><h2 id="1-拷贝命令"><a href="#1-拷贝命令" class="headerlink" title="1.拷贝命令"></a>1.拷贝命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [代码仓库url]</span><br></pre></td></tr></table></figure>
+
+<p>这种方式相当于是把项目所有的代码分支都拷贝下来，如果项目比较大，公司又是自己搭建的gitlab服务，恰好带宽又比较小，那估计得下半天。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [分支名] [代码仓库url]</span><br></pre></td></tr></table></figure>
+
+<p>这种方式下载的是指定分支的代码，其他分支，不归你负责可以不用下载，这样短平快，减少coding的技能前摇。</p>
+]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git分支操作</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>两数之和--梦开始的地方</title>
     <url>/2023/04/23/LeetCode/%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C--%E6%A2%A6%E5%BC%80%E5%A7%8B%E7%9A%84%E5%9C%B0%E6%96%B9/</url>
     <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
@@ -46,6 +84,128 @@
       </tags>
   </entry>
   <entry>
+    <title>按身高排序</title>
+    <url>/2023/04/25/LeetCode/%E6%8C%89%E8%BA%AB%E9%AB%98%E6%8E%92%E5%BA%8F/</url>
+    <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-题目"><a href="#1-题目" class="headerlink" title="1.题目"></a>1.题目</h1><p>给你一个字符串数组 <code>names</code> ，和一个由 <strong>互不相同</strong> 的正整数组成的数组 <code>heights</code> 。两个数组的长度均为 <code>n</code> 。</p>
+<p>对于每个下标 <code>i</code>，<code>names[i]</code> 和 <code>heights[i]</code> 表示第 <code>i</code> 个人的名字和身高。</p>
+<p>请按身高 <strong>降序</strong> 顺序返回对应的名字数组 <code>names</code> 。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Mary&quot;,&quot;John&quot;,&quot;Emma&quot;], heights = [180,165,170]</span><br><span class="line">输出：[&quot;Mary&quot;,&quot;Emma&quot;,&quot;John&quot;]</span><br><span class="line">解释：Mary 最高，接着是 Emma 和 John 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>示例 2：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Alice&quot;,&quot;Bob&quot;,&quot;Bob&quot;], heights = [155,185,150]</span><br><span class="line">输出：[&quot;Bob&quot;,&quot;Alice&quot;,&quot;Bob&quot;]</span><br><span class="line">解释：第一个 Bob 最高，然后是 Alice 和第二个 Bob 。</span><br></pre></td></tr></table></figure>
+
+<p><strong>提示：</strong></p>
+<ul>
+<li><code>n == names.length == heights.length</code></li>
+<li><code>1 &lt;= n &lt;= 103</code></li>
+<li><code>1 &lt;= names[i].length &lt;= 20</code></li>
+<li><code>1 &lt;= heights[i] &lt;= 105</code></li>
+<li><code>names[i]</code> 由大小写英文字母组成</li>
+<li><code>heights</code> 中的所有值互不相同</li>
+</ul>
+<h1 id="2-题解"><a href="#2-题解" class="headerlink" title="2.题解"></a>2.题解</h1><p>Java</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>LeetCode</category>
+      </categories>
+      <tags>
+        <tag>双指针</tag>
+        <tag>手撕算法题</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Kubernetes</title>
+    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+
+<span id="more"></span>
+
+<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
+<p>工作节点–是办事的</p>
+<p>主节点中：</p>
+<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
+<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
+<p>Controller-manager 状态管理者，重分配，重平衡</p>
+<p>scheduler 调度者 根据现有的资源进行分配</p>
+<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
+<p>工作节点：</p>
+<p>kubelet是接受命令的程序，并且上报目前的信息</p>
+<p>容器运行时（docker之类）</p>
+<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
+<p>kube-proxy是网络代理</p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<p>pause容器是每个Pod容器都存在的，</p>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见的排序算法--快速排序</title>
+    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序算法</category>
+      </categories>
+      <tags>
+        <tag>手撕算法题</tag>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>打开golang的大门</title>
+    <url>/2023/04/23/golang/%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
+    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/golang.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-配置go环境"><a href="#1-配置go环境" class="headerlink" title="1.配置go环境"></a>1.配置go环境</h1><h1 id="2-运行第一个go程序"><a href="#2-运行第一个go程序" class="headerlink" title="2.运行第一个go程序"></a>2.运行第一个go程序</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<p>点击运行</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GOROOT=C:\Program Files\Go <span class="comment">#gosetup</span></span><br><span class="line">GOPATH=C:\Users\winford\go <span class="comment">#gosetup</span></span><br><span class="line"><span class="string">&quot;C:\Program Files\Go\bin\go.exe&quot;</span> build -o C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe -gcflags <span class="string">&quot;all=-N -l&quot;</span> D:\project\go-test2\test.go <span class="comment">#gosetup</span></span><br><span class="line">C:\Users\winford\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175.plugins\go-plugin\lib\dlv\windows\dlv.exe --listen=127.0.0.1:63345 --headless=<span class="literal">true</span> --api-version=2 --check-go-version=<span class="literal">false</span> --only-same-user=<span class="literal">false</span> <span class="built_in">exec</span> C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe --</span><br><span class="line">API server listening at: 127.0.0.1:63345</span><br><span class="line">Hello, World!</span><br><span class="line">调试器 已完成，退出代码为 0</span><br></pre></td></tr></table></figure>
+
+<p>完成！</p>
+]]></content>
+      <categories>
+        <category>golang</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>全网最火的流程引擎--flowable</title>
+    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>流程引擎</category>
+      </categories>
+      <tags>
+        <tag>flowable</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node版本管理利器--nvm的安装使用</title>
     <url>/2023/04/20/nvm/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
@@ -86,61 +246,19 @@
       </tags>
   </entry>
   <entry>
-    <title>打开golang的大门</title>
-    <url>/2023/04/23/golang/%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
-    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/golang.jpg">
+    <title>鸡尾酒--</title>
+    <url>/2023/04/25/%E9%B8%A1%E5%B0%BE%E9%85%92/%E9%B8%A1%E5%B0%BE%E9%85%921/</url>
+    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jiu.jpg">
 
 <span id="more"></span>
 
-<h1 id="1-配置go环境"><a href="#1-配置go环境" class="headerlink" title="1.配置go环境"></a>1.配置go环境</h1><h1 id="2-运行第一个go程序"><a href="#2-运行第一个go程序" class="headerlink" title="2.运行第一个go程序"></a>2.运行第一个go程序</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Print(<span class="string">&quot;Hello, World!&quot;</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
-<p>点击运行</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">GOROOT=C:\Program Files\Go <span class="comment">#gosetup</span></span><br><span class="line">GOPATH=C:\Users\winford\go <span class="comment">#gosetup</span></span><br><span class="line"><span class="string">&quot;C:\Program Files\Go\bin\go.exe&quot;</span> build -o C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe -gcflags <span class="string">&quot;all=-N -l&quot;</span> D:\project\go-test2\test.go <span class="comment">#gosetup</span></span><br><span class="line">C:\Users\winford\AppData\Local\JetBrains\Toolbox\apps\IDEA-U\ch-0\231.8109.175.plugins\go-plugin\lib\dlv\windows\dlv.exe --listen=127.0.0.1:63345 --headless=<span class="literal">true</span> --api-version=2 --check-go-version=<span class="literal">false</span> --only-same-user=<span class="literal">false</span> <span class="built_in">exec</span> C:\Users\winford\AppData\Local\JetBrains\IntelliJIdea2023.1\tmp\GoLand\___go_build_test_go.exe --</span><br><span class="line">API server listening at: 127.0.0.1:63345</span><br><span class="line">Hello, World!</span><br><span class="line">调试器 已完成，退出代码为 0</span><br></pre></td></tr></table></figure>
-
-<p>完成！</p>
+<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>美国独立战争时期，一群军官涌入一家酒吧要喝酒。但是当时酒已经售完，老板娘急中生智，将所有的酒混合在一起，并随手拔了一根鸡毛作为装饰。没想到各种酒混合之后，口味极佳，军官连连称赞。从此，鸡尾酒的美名不胫而走。</p>
 ]]></content>
       <categories>
-        <category>golang</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>程序员的第一课——Git</title>
-    <url>/2023/04/05/Git/%E7%A8%8B%E5%BA%8F%E5%91%98%E7%9A%84%E7%AC%AC%E4%B8%80%E8%AF%BE%E2%80%94%E2%80%94Git(%E4%B8%80)/</url>
-    <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/git.jpg">
-
-<span id="more"></span>
-
-<h1 id="一、Git基操"><a href="#一、Git基操" class="headerlink" title="一、Git基操"></a>一、Git基操</h1><h2 id="1-拷贝命令"><a href="#1-拷贝命令" class="headerlink" title="1.拷贝命令"></a>1.拷贝命令</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [代码仓库url]</span><br></pre></td></tr></table></figure>
-
-<p>这种方式相当于是把项目所有的代码分支都拷贝下来，如果项目比较大，公司又是自己搭建的gitlab服务，恰好带宽又比较小，那估计得下半天。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [分支名] [代码仓库url]</span><br></pre></td></tr></table></figure>
-
-<p>这种方式下载的是指定分支的代码，其他分支，不归你负责可以不用下载，这样短平快，减少coding的技能前摇。</p>
-]]></content>
-      <categories>
-        <category>Git</category>
+        <category>鸡尾酒</category>
       </categories>
       <tags>
-        <tag>Git分支操作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker简单入门</title>
-    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
+        <tag>鸡尾酒</tag>
       </tags>
   </entry>
   <entry>
@@ -166,124 +284,6 @@
       </categories>
       <tags>
         <tag>微信支付</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全网最火的流程引擎--flowable</title>
-    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>流程引擎</category>
-      </categories>
-      <tags>
-        <tag>flowable</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常见的排序算法--快速排序</title>
-    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序算法</category>
-      </categories>
-      <tags>
-        <tag>手撕算法题</tag>
-        <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>按身高排序</title>
-    <url>/2023/04/25/LeetCode/%E6%8C%89%E8%BA%AB%E9%AB%98%E6%8E%92%E5%BA%8F/</url>
-    <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-题目"><a href="#1-题目" class="headerlink" title="1.题目"></a>1.题目</h1><p>给你一个字符串数组 <code>names</code> ，和一个由 <strong>互不相同</strong> 的正整数组成的数组 <code>heights</code> 。两个数组的长度均为 <code>n</code> 。</p>
-<p>对于每个下标 <code>i</code>，<code>names[i]</code> 和 <code>heights[i]</code> 表示第 <code>i</code> 个人的名字和身高。</p>
-<p>请按身高 <strong>降序</strong> 顺序返回对应的名字数组 <code>names</code> 。</p>
-<p><strong>示例 1：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Mary&quot;,&quot;John&quot;,&quot;Emma&quot;], heights = [180,165,170]</span><br><span class="line">输出：[&quot;Mary&quot;,&quot;Emma&quot;,&quot;John&quot;]</span><br><span class="line">解释：Mary 最高，接着是 Emma 和 John 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>示例 2：</strong></p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">输入：names = [&quot;Alice&quot;,&quot;Bob&quot;,&quot;Bob&quot;], heights = [155,185,150]</span><br><span class="line">输出：[&quot;Bob&quot;,&quot;Alice&quot;,&quot;Bob&quot;]</span><br><span class="line">解释：第一个 Bob 最高，然后是 Alice 和第二个 Bob 。</span><br></pre></td></tr></table></figure>
-
-<p><strong>提示：</strong></p>
-<ul>
-<li><code>n == names.length == heights.length</code></li>
-<li><code>1 &lt;= n &lt;= 103</code></li>
-<li><code>1 &lt;= names[i].length &lt;= 20</code></li>
-<li><code>1 &lt;= heights[i] &lt;= 105</code></li>
-<li><code>names[i]</code> 由大小写英文字母组成</li>
-<li><code>heights</code> 中的所有值互不相同</li>
-</ul>
-<h1 id="2-题解"><a href="#2-题解" class="headerlink" title="2.题解"></a>2.题解</h1><p>Java</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-        <category>LeetCode</category>
-      </categories>
-      <tags>
-        <tag>双指针</tag>
-        <tag>手撕算法题</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>鸡尾酒--</title>
-    <url>/2023/04/25/%E9%B8%A1%E5%B0%BE%E9%85%92/%E9%B8%A1%E5%B0%BE%E9%85%921/</url>
-    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jiu.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>美国独立战争时期，一群军官涌入一家酒吧要喝酒。但是当时酒已经售完，老板娘急中生智，将所有的酒混合在一起，并随手拔了一根鸡毛作为装饰。没想到各种酒混合之后，口味极佳，军官连连称赞。从此，鸡尾酒的美名不胫而走。</p>
-]]></content>
-      <categories>
-        <category>鸡尾酒</category>
-      </categories>
-      <tags>
-        <tag>鸡尾酒</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识Kubernetes</title>
-    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
-
-<span id="more"></span>
-
-<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
-<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
-<p>工作节点–是办事的</p>
-<p>主节点中：</p>
-<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
-<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
-<p>Controller-manager 状态管理者，重分配，重平衡</p>
-<p>scheduler 调度者 根据现有的资源进行分配</p>
-<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
-<p>工作节点：</p>
-<p>kubelet是接受命令的程序，并且上报目前的信息</p>
-<p>容器运行时（docker之类）</p>
-<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
-<p>kube-proxy是网络代理</p>
-<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
-<p>pause容器是每个Pod容器都存在的，</p>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
       </tags>
   </entry>
   <entry>
