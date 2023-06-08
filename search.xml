@@ -67,6 +67,48 @@
       </tags>
   </entry>
   <entry>
+    <title>全网最火的流程引擎--flowable</title>
+    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>流程引擎</category>
+      </categories>
+      <tags>
+        <tag>flowable</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>初识Kubernetes</title>
+    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+
+<span id="more"></span>
+
+<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
+<p>工作节点–是办事的</p>
+<p>主节点中：</p>
+<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
+<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
+<p>Controller-manager 状态管理者，重分配，重平衡</p>
+<p>scheduler 调度者 根据现有的资源进行分配</p>
+<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
+<p>工作节点：</p>
+<p>kubelet是接受命令的程序，并且上报目前的信息</p>
+<p>容器运行时（docker之类）</p>
+<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
+<p>kube-proxy是网络代理</p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<p>pause容器是每个Pod容器都存在的，</p>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>常见的排序算法--快速排序</title>
     <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
     <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
@@ -85,23 +127,6 @@
       <tags>
         <tag>手撕算法题</tag>
         <tag>排序算法</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Docker简单入门</title>
-    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -144,14 +169,20 @@
       </tags>
   </entry>
   <entry>
-    <title>全网最火的流程引擎--flowable</title>
-    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+    <title>Docker简单入门</title>
+    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
-        <category>流程引擎</category>
+        <category>DevOps</category>
       </categories>
       <tags>
-        <tag>flowable</tag>
+        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -339,6 +370,22 @@ zslx-->无符号
       </categories>
   </entry>
   <entry>
+    <title>鸡尾酒--</title>
+    <url>/2023/04/25/%E9%B8%A1%E5%B0%BE%E9%85%92/%E9%B8%A1%E5%B0%BE%E9%85%921/</url>
+    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jiu.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>美国独立战争时期，一群军官涌入一家酒吧要喝酒。但是当时酒已经售完，老板娘急中生智，将所有的酒混合在一起，并随手拔了一根鸡毛作为装饰。没想到各种酒混合之后，口味极佳，军官连连称赞。从此，鸡尾酒的美名不胫而走。</p>
+]]></content>
+      <categories>
+        <category>鸡尾酒</category>
+      </categories>
+      <tags>
+        <tag>鸡尾酒</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node版本管理利器--nvm的安装使用</title>
     <url>/2023/04/20/nvm/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
@@ -379,78 +426,6 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title>微信支付从入门到入土——简单支付</title>
-    <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
-    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
-
-<span id="more"></span>
-
-<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
-
-<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
-]]></content>
-      <categories>
-        <category>支付模块</category>
-      </categories>
-      <tags>
-        <tag>微信支付</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>鸡尾酒--</title>
-    <url>/2023/04/25/%E9%B8%A1%E5%B0%BE%E9%85%92/%E9%B8%A1%E5%B0%BE%E9%85%921/</url>
-    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jiu.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>美国独立战争时期，一群军官涌入一家酒吧要喝酒。但是当时酒已经售完，老板娘急中生智，将所有的酒混合在一起，并随手拔了一根鸡毛作为装饰。没想到各种酒混合之后，口味极佳，军官连连称赞。从此，鸡尾酒的美名不胫而走。</p>
-]]></content>
-      <categories>
-        <category>鸡尾酒</category>
-      </categories>
-      <tags>
-        <tag>鸡尾酒</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识Kubernetes</title>
-    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
-
-<span id="more"></span>
-
-<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
-<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
-<p>工作节点–是办事的</p>
-<p>主节点中：</p>
-<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
-<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
-<p>Controller-manager 状态管理者，重分配，重平衡</p>
-<p>scheduler 调度者 根据现有的资源进行分配</p>
-<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
-<p>工作节点：</p>
-<p>kubelet是接受命令的程序，并且上报目前的信息</p>
-<p>容器运行时（docker之类）</p>
-<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
-<p>kube-proxy是网络代理</p>
-<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
-<p>pause容器是每个Pod容器都存在的，</p>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java并发编程之JUC包</title>
     <url>/2023/05/20/Java/JUC/JUC/</url>
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
@@ -473,47 +448,6 @@ zslx-->无符号
       <categories>
         <category>web前端</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Java虚拟机</title>
-    <url>/2023/05/20/Java/JVM/JVM/</url>
-    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
-
-<span id="more"></span>
-
-<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
-
-
-
-<pre class="mermaid">graph LR;
-JVM-->堆
-JVM-->栈
-JVM-->方法区
-JVM-->程序计数器
-
-堆-->新生代
-堆-->老年代
-
-新生代-->Eden
-新生代-->from
-新生代-->to
-
-方法区-->常量池
-方法区-->被共享的线程区域</pre>
-
-<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
-<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
-<p><strong>方法区：</strong> （1）常量池、静态区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-      </tags>
   </entry>
   <entry>
     <title>Java集合</title>
@@ -619,6 +553,31 @@ JVM-->程序计数器
       <tags>
         <tag>Java集合</tag>
         <tag>集合</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>微信支付从入门到入土——简单支付</title>
+    <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
+    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
+
+<span id="more"></span>
+
+<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
+
+<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
+]]></content>
+      <categories>
+        <category>支付模块</category>
+      </categories>
+      <tags>
+        <tag>微信支付</tag>
       </tags>
   </entry>
 </search>
