@@ -1,23 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Docker简单入门</title>
-    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
-    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>分布式版本控制工具--Git</title>
     <url>/2023/04/05/Git/%E5%88%86%E5%B8%83%E5%BC%8F%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6%E5%B7%A5%E5%85%B7--Git/</url>
     <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/git.jpg">
@@ -36,27 +19,6 @@
       </categories>
       <tags>
         <tag>Git分支操作</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>常见的排序算法--快速排序</title>
-    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法</category>
-        <category>排序算法</category>
-      </categories>
-      <tags>
-        <tag>排序算法</tag>
-        <tag>手撕算法题</tag>
       </tags>
   </entry>
   <entry>
@@ -99,9 +61,30 @@
         <category>算法</category>
       </categories>
       <tags>
-        <tag>手撕算法题</tag>
         <tag>双指针</tag>
+        <tag>手撕算法题</tag>
         <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>常见的排序算法--快速排序</title>
+    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序算法</category>
+      </categories>
+      <tags>
+        <tag>手撕算法题</tag>
+        <tag>排序算法</tag>
       </tags>
   </entry>
   <entry>
@@ -138,8 +121,8 @@
         <category>LeetCode</category>
       </categories>
       <tags>
-        <tag>手撕算法题</tag>
         <tag>双指针</tag>
+        <tag>手撕算法题</tag>
         <tag>LeetCode</tag>
       </tags>
   </entry>
@@ -339,6 +322,37 @@ zslx-->无符号
       </categories>
   </entry>
   <entry>
+    <title>初识Kubernetes</title>
+    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+
+<span id="more"></span>
+
+<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
+<p>工作节点–是办事的</p>
+<p>主节点中：</p>
+<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
+<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
+<p>Controller-manager 状态管理者，重分配，重平衡</p>
+<p>scheduler 调度者 根据现有的资源进行分配</p>
+<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
+<p>工作节点：</p>
+<p>kubelet是接受命令的程序，并且上报目前的信息</p>
+<p>容器运行时（docker之类）</p>
+<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
+<p>kube-proxy是网络代理</p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<p>pause容器是每个Pod容器都存在的，</p>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>node版本管理利器--nvm的安装使用</title>
     <url>/2023/04/20/nvm/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
@@ -376,37 +390,6 @@ zslx-->无符号
       <tags>
         <tag>nvm</tag>
         <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>初识Kubernetes</title>
-    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1><img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
-
-<span id="more"></span>
-
-<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
-<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
-<p>工作节点–是办事的</p>
-<p>主节点中：</p>
-<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
-<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
-<p>Controller-manager 状态管理者，重分配，重平衡</p>
-<p>scheduler 调度者 根据现有的资源进行分配</p>
-<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
-<p>工作节点：</p>
-<p>kubelet是接受命令的程序，并且上报目前的信息</p>
-<p>容器运行时（docker之类）</p>
-<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
-<p>kube-proxy是网络代理</p>
-<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
-<p>pause容器是每个Pod容器都存在的，</p>
-]]></content>
-      <categories>
-        <category>DevOps</category>
-      </categories>
-      <tags>
-        <tag>k8s</tag>
       </tags>
   </entry>
   <entry>
@@ -451,6 +434,23 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
+    <title>Docker简单入门</title>
+    <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
+    <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java并发编程之JUC包</title>
     <url>/2023/05/20/Java/JUC/JUC/</url>
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
@@ -464,15 +464,6 @@ zslx-->无符号
         <tag>Java</tag>
         <tag>并发编程</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>CSS</title>
-    <url>/2023/06/28/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/2.CSS/</url>
-    <content><![CDATA[<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1.CSS简介"></a>1.CSS简介</h1><h2 id="1-1CSS语法规范"><a href="#1-1CSS语法规范" class="headerlink" title="1.1CSS语法规范"></a>1.1CSS语法规范</h2><p>由选择器以及一条或者多条声明组成。</p>
-]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
   </entry>
   <entry>
     <title>Java集合</title>
@@ -579,5 +570,55 @@ zslx-->无符号
         <tag>Java集合</tag>
         <tag>集合</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Java虚拟机</title>
+    <url>/2023/05/20/Java/JVM/JVM/</url>
+    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
+
+<span id="more"></span>
+
+<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
+
+
+
+<pre class="mermaid">graph LR;
+JVM-->堆
+JVM-->栈
+JVM-->方法区
+JVM-->程序计数器
+
+堆-->新生代
+堆-->老年代
+
+新生代-->Eden
+新生代-->from
+新生代-->to
+
+方法区-->常量池
+方法区-->被共享的线程区域</pre>
+
+<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
+<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
+<p><strong>方法区：</strong> （1）常量池、静态区</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>CSS</title>
+    <url>/2023/06/28/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/2.CSS/</url>
+    <content><![CDATA[<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1.CSS简介"></a>1.CSS简介</h1><h2 id="1-1CSS语法规范"><a href="#1-1CSS语法规范" class="headerlink" title="1.1CSS语法规范"></a>1.1CSS语法规范</h2><p>由选择器以及一条或者多条声明组成。</p>
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
   </entry>
 </search>
