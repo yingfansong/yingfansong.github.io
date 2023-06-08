@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title></title>
-    <url>/2023/06/06/%E5%89%8D%E7%AB%AF/h5+css3+%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%89%8D%E7%AB%AF--pink/1.H5/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
     <title>Docker简单入门</title>
     <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
@@ -618,9 +613,12 @@ JVM-->程序计数器
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>/2023/06/06/%E5%89%8D%E7%AB%AF/h5+css3+%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%89%8D%E7%AB%AF--pink/2.CSS/</url>
+    <title>CSS</title>
+    <url>/2023/06/28/%E5%89%8D%E7%AB%AF/h5+css3+%E7%A7%BB%E5%8A%A8%E7%AB%AF%E5%89%8D%E7%AB%AF--pink/2.CSS/</url>
     <content><![CDATA[<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1.CSS简介"></a>1.CSS简介</h1><h2 id="1-1CSS语法规范"><a href="#1-1CSS语法规范" class="headerlink" title="1.1CSS语法规范"></a>1.1CSS语法规范</h2><p>由选择器以及一条或者多条声明组成。</p>
 ]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
   </entry>
 </search>
