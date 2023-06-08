@@ -367,29 +367,19 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title>鸡尾酒--</title>
-    <url>/2023/04/25/%E9%B8%A1%E5%B0%BE%E9%85%92/%E9%B8%A1%E5%B0%BE%E9%85%921/</url>
-    <content><![CDATA[<img style= "width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jiu.jpg">
-
-<span id="more"></span>
-
-<h1 id="1-起源"><a href="#1-起源" class="headerlink" title="1.起源"></a>1.起源</h1><p>美国独立战争时期，一群军官涌入一家酒吧要喝酒。但是当时酒已经售完，老板娘急中生智，将所有的酒混合在一起，并随手拔了一根鸡毛作为装饰。没想到各种酒混合之后，口味极佳，军官连连称赞。从此，鸡尾酒的美名不胫而走。</p>
-]]></content>
-      <categories>
-        <category>鸡尾酒</category>
-      </categories>
-      <tags>
-        <tag>鸡尾酒</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Docker简单入门</title>
     <url>/2023/04/24/Docker/Docker%E7%AE%80%E5%8D%95%E5%85%A5%E9%97%A8/</url>
     <content><![CDATA[<img style = "width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/docker.jpg">
 
 <span id="more"></span>
 
-<h1 id="1-下载Docker"><a href="#1-下载Docker" class="headerlink" title="1.下载Docker"></a>1.下载Docker</h1><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="1-安装Docker"><a href="#1-安装Docker" class="headerlink" title="1.安装Docker"></a>1.安装Docker</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">yum list docker-ce --showduplicates | <span class="built_in">sort</span> -r                 //查看可用的版本</span><br><span class="line"></span><br><span class="line">yum install docker-ce-版本号                                   //选择一个版本进行安装</span><br><span class="line"></span><br><span class="line">systemctl start docker &amp; systemctl <span class="built_in">enable</span> docker               //设置开机自启动</span><br><span class="line"></span><br><span class="line">docker version                                                //查看有无安装成功</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-修改阿里云镜像"><a href="#2-修改阿里云镜像" class="headerlink" title="2.修改阿里云镜像"></a>2.修改阿里云镜像</h1><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/docker/daemon.json                         //修改配置文件</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;registry-mirrors&quot;: [&quot;https://2l5j7ihl.mirror.aliyuncs.com&quot;]   //地址可以去阿里云申请</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line">sudo systemctl restart docker           //重启docker</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -713,6 +703,41 @@ JVM-->程序计数器
         <tag>面经</tag>
         <tag>SKP</tag>
         <tag>笔试</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2023/06/08/Java/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
+
+<span id="more"></span>
+
+<h4 id="1-String、StringBuffer、StringBuilder的区别"><a href="#1-String、StringBuffer、StringBuilder的区别" class="headerlink" title="1.String、StringBuffer、StringBuilder的区别"></a>1.String、StringBuffer、StringBuilder的区别</h4><ul>
+<li>String是不可变的，如果尝试去修改，会新⽣成㇐个字符串对象，StringBuffer和StringBuilder是可变的， StringBuffer和StringBuilder都是在原对象上操作 </li>
+<li>StringBuffer是线程安全的，StringBuilder是线程不安全的，所以在单线程环境下StringBuilder效率会更⾼ </li>
+<li>对于操作效率而言，一般来说，StringBuilder &gt; StringBuffer &gt; String；</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MySQL之索引</title>
+    <url>/2023/06/08/MySQL/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>索引</category>
+      </categories>
+      <tags>
+        <tag>索引</tag>
+        <tag>MySQL</tag>
+        <tag>关系型数据库</tag>
       </tags>
   </entry>
 </search>
