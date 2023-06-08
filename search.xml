@@ -730,6 +730,8 @@ JVM-->程序计数器
     <url>/2023/06/08/MySQL/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/</url>
     <content><![CDATA[<img style="width:400px" src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/mysql.jpg">
 
+<span id="more"></span>
+
 <h1 id="1-什么是索引"><a href="#1-什么是索引" class="headerlink" title="1.什么是索引"></a>1.什么是索引</h1><h2 id="1-1索引的数据结构（B-树）"><a href="#1-1索引的数据结构（B-树）" class="headerlink" title="1.1索引的数据结构（B+树）"></a>1.1索引的数据结构（B+树）</h2><h3 id="问题：为什么不用二叉搜索树？"><a href="#问题：为什么不用二叉搜索树？" class="headerlink" title="问题：为什么不用二叉搜索树？"></a><strong>问题：为什么不用二叉搜索树？</strong></h3><p>二叉搜索树，也是最简单的树结构。</p>
 <p><strong>主要特征</strong>：</p>
 <p>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>左、右子树也分别为二叉排序树；<br>那么，二叉搜索树为什么不适合用作数据库索引？</p>
