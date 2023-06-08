@@ -127,17 +127,6 @@
       </tags>
   </entry>
   <entry>
-    <title>全网最火的流程引擎--flowable</title>
-    <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>流程引擎</category>
-      </categories>
-      <tags>
-        <tag>flowable</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>打开golang的大门</title>
     <url>/2023/04/23/golang/%E6%89%93%E5%BC%80golang%E7%9A%84%E5%A4%A7%E9%97%A8/</url>
     <content><![CDATA[<img style="width:400px" src="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/golang.jpg">
@@ -353,46 +342,6 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title>node版本管理利器--nvm的安装使用</title>
-    <url>/2023/04/20/nvm/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
-
-<span id="more"></span>
-
-<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com"><a href="#1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com" class="headerlink" title="1.[下载安装包](nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com))"></a>1.[下载安装包](<a href="https://nvm.uihtm.com/">nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com)</a>)</h2><p>​	在官网上针对您的系统进行相应的下载。下载完之后安装，都是傻瓜式的操作，这不多赘述。</p>
-<p>如果您有幸生活在“墙国”，需要配置淘宝镜像，才能正常使用该利器。</p>
-<h2 id="2-nvm淘宝镜像设置"><a href="#2-nvm淘宝镜像设置" class="headerlink" title="2.nvm淘宝镜像设置"></a>2.nvm淘宝镜像设置</h2><p>使用命令，查看配置文件所在目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm root</span><br></pre></td></tr></table></figure>
-
-<p>如果不出意外，应该会显示nvm的安装目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Current Root: C:\Users\winford\AppData\Roaming\nvm</span><br></pre></td></tr></table></figure>
-
-<p>copy一下，cd 进入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/4/20     21:11                v16.0.0</span><br><span class="line">d-----         2023/4/20     21:03                v16.14.1</span><br><span class="line">-a----         2015/9/30     14:09             86 elevate.cmd</span><br><span class="line">-a----         2015/9/30     14:09            348 elevate.vbs</span><br><span class="line">-a----         2015/9/30     14:09            491 install.cmd</span><br><span class="line">-a----         2015/9/30     14:09          15086 nodejs.ico</span><br><span class="line">-a----          2018/8/8      0:46        6150648 nvm.exe</span><br><span class="line">-a----         2023/4/20     21:02            175 settings.txt</span><br><span class="line">-a----         2023/4/20     20:57          14051 unins000.dat</span><br><span class="line">-a----         2023/4/20     20:56         737272 unins000.exe</span><br><span class="line">-a----         2023/4/20     20:57          11401 unins000.msg</span><br></pre></td></tr></table></figure>
-
-<p>大概是这样的目录结构</p>
-<p>打开setting.txt</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root: C:\Users\winford\AppData\Roaming\nvm</span><br><span class="line">path: C:\Program Files\nodejs</span><br><span class="line"></span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-
-<p>加上下面两行代码就好了</p>
-<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1-查看可下载的版本"><a href="#1-查看可下载的版本" class="headerlink" title="1.查看可下载的版本"></a>1.查看可下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list available</span><br><span class="line"></span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    20.0.0    |   18.16.0    |   0.12.18    |   0.11.16    |</span><br><span class="line">|    19.9.0    |   18.15.0    |   0.12.17    |   0.11.15    |</span><br><span class="line">|    19.8.1    |   18.14.2    |   0.12.16    |   0.11.14    |</span><br><span class="line">|    19.8.0    |   18.14.1    |   0.12.15    |   0.11.13    |</span><br><span class="line">|    19.7.0    |   18.14.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    19.6.1    |   18.13.0    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    19.6.0    |   18.12.1    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    19.5.0    |   18.12.0    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    19.4.0    |   16.20.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    19.3.0    |   16.19.1    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    19.2.0    |   16.19.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">|    19.1.0    |   16.18.1    |    0.12.7    |    0.11.5    |</span><br><span class="line">|    19.0.1    |   16.18.0    |    0.12.6    |    0.11.4    |</span><br><span class="line">|    19.0.0    |   16.17.1    |    0.12.5    |    0.11.3    |</span><br><span class="line">|   18.11.0    |   16.17.0    |    0.12.4    |    0.11.2    |</span><br><span class="line">|   18.10.0    |   16.16.0    |    0.12.3    |    0.11.1    |</span><br><span class="line">|    18.9.1    |   16.15.1    |    0.12.2    |    0.11.0    |</span><br><span class="line">|    18.9.0    |   16.15.0    |    0.12.1    |    0.9.12    |</span><br><span class="line">|    18.8.0    |   16.14.2    |    0.12.0    |    0.9.11    |</span><br><span class="line">|    18.7.0    |   16.14.1    |   0.10.48    |    0.9.10    |</span><br><span class="line"></span><br><span class="line">This is a partial list. For a complete list, visit https://nodejs.org/download/release</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-下载并安装特定版本"><a href="#2-下载并安装特定版本" class="headerlink" title="2.下载并安装特定版本"></a>2.下载并安装特定版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm install [版本号]</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-查看已下载的版本"><a href="#3-查看已下载的版本" class="headerlink" title="3.查看已下载的版本"></a>3.查看已下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list</span><br><span class="line"></span><br><span class="line">    16.14.1</span><br><span class="line">  * 16.0.0 (Currently using 64-bit executable)</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-使用已安装的版本"><a href="#4-使用已安装的版本" class="headerlink" title="4.使用已安装的版本"></a>4.使用已安装的版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm use [已安装的版本号] ---需要管理员权限</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
-      <tags>
-        <tag>nvm</tag>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>微信支付从入门到入土——简单支付</title>
     <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
     <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
@@ -452,7 +401,7 @@ zslx-->无符号
   </entry>
   <entry>
     <title>Java并发编程之JUC包</title>
-    <url>/2023/05/20/Java/JUC/JUC/</url>
+    <url>/2023/05/20/Java/JUC/</url>
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
 
 <span id="more"></span>]]></content>
@@ -466,8 +415,49 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
+    <title>Java虚拟机</title>
+    <url>/2023/05/20/Java/JVM/</url>
+    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
+
+<span id="more"></span>
+
+<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
+
+
+
+<pre class="mermaid">graph LR;
+JVM-->堆
+JVM-->栈
+JVM-->方法区
+JVM-->程序计数器
+
+堆-->新生代
+堆-->老年代
+
+新生代-->Eden
+新生代-->from
+新生代-->to
+
+方法区-->常量池
+方法区-->被共享的线程区域</pre>
+
+<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
+<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
+<p><strong>方法区：</strong> （1）常量池、静态区</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>JVM</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java集合</title>
-    <url>/2023/05/19/Java/%E9%9B%86%E5%90%88/%E9%9B%86%E5%90%88/</url>
+    <url>/2023/05/19/Java/%E9%9B%86%E5%90%88/</url>
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
 
 <span id="more"></span>
@@ -572,53 +562,157 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title>Java虚拟机</title>
-    <url>/2023/05/20/Java/JVM/JVM/</url>
-    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
+    <title>CSS</title>
+    <url>/2023/06/28/%E5%89%8D%E7%AB%AF/CSS/</url>
+    <content><![CDATA[<img style="width:400px" src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/%E5%89%8D%E7%AB%AF.jpg">
 
 <span id="more"></span>
 
-<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
-
-
-
-<pre class="mermaid">graph LR;
-JVM-->堆
-JVM-->栈
-JVM-->方法区
-JVM-->程序计数器
-
-堆-->新生代
-堆-->老年代
-
-新生代-->Eden
-新生代-->from
-新生代-->to
-
-方法区-->常量池
-方法区-->被共享的线程区域</pre>
-
-<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
-<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
-<p><strong>方法区：</strong> （1）常量池、静态区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java</tag>
-        <tag>JVM</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CSS</title>
-    <url>/2023/06/28/%E5%89%8D%E7%AB%AF/%E5%89%8D%E7%AB%AF/2.CSS/</url>
-    <content><![CDATA[<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1.CSS简介"></a>1.CSS简介</h1><h2 id="1-1CSS语法规范"><a href="#1-1CSS语法规范" class="headerlink" title="1.1CSS语法规范"></a>1.1CSS语法规范</h2><p>由选择器以及一条或者多条声明组成。</p>
+<h1 id="1-CSS简介"><a href="#1-CSS简介" class="headerlink" title="1.CSS简介"></a>1.CSS简介</h1><h2 id="1-1CSS语法规范"><a href="#1-1CSS语法规范" class="headerlink" title="1.1CSS语法规范"></a>1.1CSS语法规范</h2><p>由选择器以及一条或者多条声明组成。</p>
 ]]></content>
       <categories>
         <category>web前端</category>
       </categories>
+  </entry>
+  <entry>
+    <title>node版本管理利器--nvm的安装使用</title>
+    <url>/2023/04/20/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<img style="width:400px" src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
+
+<span id="more"></span>
+
+<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com"><a href="#1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com" class="headerlink" title="1.[下载安装包](nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com))"></a>1.[下载安装包](<a href="https://nvm.uihtm.com/">nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com)</a>)</h2><p>​	在官网上针对您的系统进行相应的下载。下载完之后安装，都是傻瓜式的操作，这不多赘述。</p>
+<p>如果您有幸生活在“墙国”，需要配置淘宝镜像，才能正常使用该利器。</p>
+<h2 id="2-nvm淘宝镜像设置"><a href="#2-nvm淘宝镜像设置" class="headerlink" title="2.nvm淘宝镜像设置"></a>2.nvm淘宝镜像设置</h2><p>使用命令，查看配置文件所在目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm root</span><br></pre></td></tr></table></figure>
+
+<p>如果不出意外，应该会显示nvm的安装目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Current Root: C:\Users\winford\AppData\Roaming\nvm</span><br></pre></td></tr></table></figure>
+
+<p>copy一下，cd 进入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/4/20     21:11                v16.0.0</span><br><span class="line">d-----         2023/4/20     21:03                v16.14.1</span><br><span class="line">-a----         2015/9/30     14:09             86 elevate.cmd</span><br><span class="line">-a----         2015/9/30     14:09            348 elevate.vbs</span><br><span class="line">-a----         2015/9/30     14:09            491 install.cmd</span><br><span class="line">-a----         2015/9/30     14:09          15086 nodejs.ico</span><br><span class="line">-a----          2018/8/8      0:46        6150648 nvm.exe</span><br><span class="line">-a----         2023/4/20     21:02            175 settings.txt</span><br><span class="line">-a----         2023/4/20     20:57          14051 unins000.dat</span><br><span class="line">-a----         2023/4/20     20:56         737272 unins000.exe</span><br><span class="line">-a----         2023/4/20     20:57          11401 unins000.msg</span><br></pre></td></tr></table></figure>
+
+<p>大概是这样的目录结构</p>
+<p>打开setting.txt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root: C:\Users\winford\AppData\Roaming\nvm</span><br><span class="line">path: C:\Program Files\nodejs</span><br><span class="line"></span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+
+<p>加上下面两行代码就好了</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1-查看可下载的版本"><a href="#1-查看可下载的版本" class="headerlink" title="1.查看可下载的版本"></a>1.查看可下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list available</span><br><span class="line"></span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    20.0.0    |   18.16.0    |   0.12.18    |   0.11.16    |</span><br><span class="line">|    19.9.0    |   18.15.0    |   0.12.17    |   0.11.15    |</span><br><span class="line">|    19.8.1    |   18.14.2    |   0.12.16    |   0.11.14    |</span><br><span class="line">|    19.8.0    |   18.14.1    |   0.12.15    |   0.11.13    |</span><br><span class="line">|    19.7.0    |   18.14.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    19.6.1    |   18.13.0    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    19.6.0    |   18.12.1    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    19.5.0    |   18.12.0    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    19.4.0    |   16.20.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    19.3.0    |   16.19.1    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    19.2.0    |   16.19.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">|    19.1.0    |   16.18.1    |    0.12.7    |    0.11.5    |</span><br><span class="line">|    19.0.1    |   16.18.0    |    0.12.6    |    0.11.4    |</span><br><span class="line">|    19.0.0    |   16.17.1    |    0.12.5    |    0.11.3    |</span><br><span class="line">|   18.11.0    |   16.17.0    |    0.12.4    |    0.11.2    |</span><br><span class="line">|   18.10.0    |   16.16.0    |    0.12.3    |    0.11.1    |</span><br><span class="line">|    18.9.1    |   16.15.1    |    0.12.2    |    0.11.0    |</span><br><span class="line">|    18.9.0    |   16.15.0    |    0.12.1    |    0.9.12    |</span><br><span class="line">|    18.8.0    |   16.14.2    |    0.12.0    |    0.9.11    |</span><br><span class="line">|    18.7.0    |   16.14.1    |   0.10.48    |    0.9.10    |</span><br><span class="line"></span><br><span class="line">This is a partial list. For a complete list, visit https://nodejs.org/download/release</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-下载并安装特定版本"><a href="#2-下载并安装特定版本" class="headerlink" title="2.下载并安装特定版本"></a>2.下载并安装特定版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm install [版本号]</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看已下载的版本"><a href="#3-查看已下载的版本" class="headerlink" title="3.查看已下载的版本"></a>3.查看已下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list</span><br><span class="line"></span><br><span class="line">    16.14.1</span><br><span class="line">  * 16.0.0 (Currently using 64-bit executable)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-使用已安装的版本"><a href="#4-使用已安装的版本" class="headerlink" title="4.使用已安装的版本"></a>4.使用已安装的版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm use [已安装的版本号] ---需要管理员权限</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>node</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>全网最火的流程引擎--flowable</title>
+    <url>/2023/04/05/%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E&amp;&amp;%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
+      <categories>
+        <category>流程引擎</category>
+      </categories>
+      <tags>
+        <tag>flowable</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SKP一轮</title>
+    <url>/2023/06/08/%E9%9D%A2%E7%BB%8F/2023%E5%B9%B46%E6%9C%888%E6%97%A5%EF%BC%88SKP%E9%9D%A2%E8%AF%95%EF%BC%89/</url>
+    <content><![CDATA[<img style= "width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/%E9%9D%A2%E8%AF%95.jpeg">
+
+<span id="more"></span>
+
+<p>JAVA面试题</p>
+<ol>
+<li><p>String、StringBuffer、StringBuilder有什么区别？(5分)</p>
+</li>
+<li><p>final、finally、finalize 有什么区别？(5分)</p>
+</li>
+<li><p>try-catch-finally 中，如果 catch 中 return 了，finally 还会执行吗？(5分)</p>
+</li>
+<li><p>线程安全和线程不安全的定义及其区别？(5分)</p>
+</li>
+<li><p>java中的单例模式及其实现方式？(5分)</p>
+</li>
+<li><p>缓存有哪些类型？(10分)</p>
+</li>
+<li><p>常见的异常类有哪些？(10分)</p>
+</li>
+<li><p>Spring Boot 的核心注解是哪个？它主要由哪几个注解组成的？(10分)</p>
+</li>
+<li><p>Spring Boot 的配置文件有哪几种格式？它们有什么区别？(10分)</p>
+</li>
+<li><p>spring boot 的启动流程? (10分)</p>
+</li>
+<li><p>Spring事务的实现方式和原理以及隔离级别？(15分)</p>
+</li>
+<li><p>以下是学生考试结果表(10分)</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>fname</th>
+<th>kecheng</th>
+<th>fenshu</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>张三</td>
+<td>语文</td>
+<td>81</td>
+</tr>
+<tr>
+<td>张三</td>
+<td>数学</td>
+<td>65</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>语文</td>
+<td>76</td>
+</tr>
+<tr>
+<td>李四</td>
+<td>数学</td>
+<td>90</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>语文</td>
+<td>61</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>数学</td>
+<td>100</td>
+</tr>
+<tr>
+<td>王五</td>
+<td>英语</td>
+<td>90</td>
+</tr>
+</tbody></table>
+<p>1.请用一条sql语句从t_result表中查询出每门课都大于75分的学生姓名；</p>
+<p>2.请用一条sql写出总分排名前三的学生姓名，总分，平均分</p>
+<h3 id=""><a href="#" class="headerlink" title=""></a></h3><h3 id="-1"><a href="#-1" class="headerlink" title=""></a></h3>]]></content>
+      <categories>
+        <category>面经</category>
+      </categories>
+      <tags>
+        <tag>面经</tag>
+        <tag>SKP</tag>
+        <tag>笔试</tag>
+      </tags>
   </entry>
 </search>
