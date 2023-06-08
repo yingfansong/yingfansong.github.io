@@ -179,43 +179,6 @@
       </tags>
   </entry>
   <entry>
-    <title>JVM内存模型</title>
-    <url>/2023/06/08/jvm/jvm%E5%86%85%E5%AD%98%E6%A8%A1%E5%9E%8B/</url>
-    <content><![CDATA[<img style= "width:400px" src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/JVM1.png">
-
-<span id="more"></span>
-
-<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
-
-
-
-<pre class="mermaid">graph LR;
-JVM-->堆
-JVM-->栈
-JVM-->方法区
-JVM-->程序计数器
-
-堆-->新生代
-堆-->老年代
-
-新生代-->Eden
-新生代-->from
-新生代-->to
-
-方法区-->常量池
-方法区-->被共享的线程区域</pre>
-
-<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
-<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
-<p><strong>方法区：</strong> （1）常量池、静态区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>JVM</category>
-      </categories>
-  </entry>
-  <entry>
     <title>全网最火的流程引擎--flowable</title>
     <url>/2023/04/05/flowable/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
     <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
@@ -543,6 +506,32 @@ zslx-->无符号
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
 
 <span id="more"></span>
+
+<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
+
+
+
+<pre class="mermaid">graph LR;
+JVM-->堆
+JVM-->栈
+JVM-->方法区
+JVM-->程序计数器
+
+堆-->新生代
+堆-->老年代
+
+新生代-->Eden
+新生代-->from
+新生代-->to
+
+方法区-->常量池
+方法区-->被共享的线程区域</pre>
+
+<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
+<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
+<p><strong>方法区：</strong> （1）常量池、静态区</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
         <category>Java</category>
