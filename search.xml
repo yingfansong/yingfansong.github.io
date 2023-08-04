@@ -331,7 +331,7 @@ zslx-->无符号
 <p>容器运行时（docker之类）</p>
 <p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
 <p>kube-proxy是网络代理</p>
-<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>​    Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
 <p>pause容器是每个Pod容器都存在的，</p>
 ]]></content>
       <categories>
