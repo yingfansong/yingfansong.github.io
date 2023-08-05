@@ -374,6 +374,45 @@ td {
   License: see project LICENSE
   Touched: 2021
 */pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}.hljs{background:#f3f3f3;color:#444}.hljs-comment{color:#697070}.hljs-punctuation,.hljs-tag{color:#444a}.hljs-tag .hljs-attr,.hljs-tag .hljs-name{color:#444}.hljs-attribute,.hljs-doctag,.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-name,.hljs-selector-tag{font-weight:700}.hljs-deletion,.hljs-number,.hljs-quote,.hljs-selector-class,.hljs-selector-id,.hljs-string,.hljs-template-tag,.hljs-type{color:#800}.hljs-section,.hljs-title{color:#800;font-weight:700}.hljs-link,.hljs-operator,.hljs-regexp,.hljs-selector-attr,.hljs-selector-pseudo,.hljs-symbol,.hljs-template-variable,.hljs-variable{color:#ab5656}.hljs-literal{color:#695}.hljs-addition,.hljs-built_in,.hljs-bullet,.hljs-code{color:#397300}.hljs-meta{color:#1f7199}.hljs-meta .hljs-string{color:#38a}.hljs-emphasis{font-style:italic}.hljs-strong{font-weight:700}
+.highlight:hover .copy-btn,
+pre:hover .copy-btn {
+  opacity: 1;
+}
+figure.highlight .table-container {
+  position: relative;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition: opacity 0.2s ease-in-out;
+  color: var(--highlight-foreground);
+  font-size: 14px;
+  right: 0;
+  top: 2px;
+}
+figure.highlight {
+  border-radius: 5px;
+  box-shadow: 0 10px 30px 0 rgba(0,0,0,0.4);
+  padding-top: 30px;
+}
+figure.highlight .table-container {
+  border-radius: 0 0 5px 5px;
+}
+figure.highlight::before {
+  background: #fc625d;
+  box-shadow: 20px 0 #fdbc40, 40px 0 #35cd4b;
+  left: 12px;
+  margin-top: -20px;
+  position: absolute;
+  border-radius: 50%;
+  content: ' ';
+  height: 12px;
+  width: 12px;
+}
 code,
 kbd,
 figure.highlight,
@@ -1099,6 +1138,68 @@ pre code {
 .use-motion .menu-item {
   visibility: hidden;
 }
+.book-mark-link {
+  border-bottom: 0;
+  position: fixed;
+  top: -10px;
+  transition: top 0.3s;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    right: 20px;
+  }
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
+  }
+}
+.book-mark-link::before {
+  color: #222;
+  font-size: 32px;
+  line-height: 1;
+  content: '\f02e';
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
+}
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  color: #fff;
+  fill: var(--theme-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 5;
+}
+@media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
 .sidebar-inner {
   color: #999;
   padding: 18px 10px;
@@ -1463,6 +1564,11 @@ pre code {
   color: #f00;
   display: inline-block;
   margin: 0 5px;
+}
+.beian img {
+  display: inline-block;
+  margin: 0 3px;
+  vertical-align: middle;
 }
 @keyframes icon-animate {
   0%, 100% {
@@ -1975,6 +2081,10 @@ pre code {
 .post-reward div span {
   display: block;
 }
+.post-reward div:hover span {
+  animation: next-roll 0.1s infinite linear;
+  pointer-events: none;
+}
 .post-reward img {
   display: inline-block;
   margin: 0.8em 2em 0;
@@ -2172,6 +2282,14 @@ ul.breadcrumb li:last-child {
 .tag-cloud-10 {
   border-bottom-color: #111;
   color: #111;
+}
+.gt-header a,
+.gt-comments a,
+.gt-popup a {
+  border-bottom: 0;
+}
+.gt-container .gt-popup .gt-action.is--active::before {
+  top: 0.7em;
 }
 .search-active {
   overflow: hidden;
@@ -2463,9 +2581,10 @@ header.header {
   margin-bottom: 10px;
   margin-right: 10px;
   vertical-align: middle;
+  transition: all 0.2s ease-in-out;
 }
 .links-of-author a::before {
-  background: #ffadfb;
+  background: #ffffba;
   display: inline-block;
   margin-right: 3px;
   transform: translateY(-2px);
