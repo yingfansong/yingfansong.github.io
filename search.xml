@@ -45,67 +45,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Java虚拟机</title>
-    <url>/2023/05/20/Java/JVM/</url>
-    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
-
-<span id="more"></span>
-
-<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
-
-
-
-<pre class="mermaid">graph LR;
-JVM-->堆
-JVM-->栈
-JVM-->方法区
-JVM-->程序计数器
-
-堆-->新生代
-堆-->老年代
-
-新生代-->Eden
-新生代-->from
-新生代-->to
-
-方法区-->常量池
-方法区-->被共享的线程区域</pre>
-
-<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
-<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
-<p><strong>方法区：</strong> （1）常量池、静态区</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>JVM</tag>
-        <tag>Java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java基础</title>
-    <url>/2023/06/08/Java/Java%E5%9F%BA%E7%A1%80/</url>
-    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
-
-<span id="more"></span>
-
-<h4 id="1-String、StringBuffer、StringBuilder的区别"><a href="#1-String、StringBuffer、StringBuilder的区别" class="headerlink" title="1.String、StringBuffer、StringBuilder的区别"></a>1.String、StringBuffer、StringBuilder的区别</h4><ul>
-<li>String是不可变的，如果尝试去修改，会新⽣成㇐个字符串对象，StringBuffer和StringBuilder是可变的， StringBuffer和StringBuilder都是在原对象上操作 </li>
-<li>StringBuffer是线程安全的，StringBuilder是线程不安全的，所以在单线程环境下StringBuilder效率会更⾼ </li>
-<li>对于操作效率而言，一般来说，StringBuilder &gt; StringBuffer &gt; String；</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Java基础</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Java多线程与并发编程</title>
     <url>/2023/05/20/Java/JUC/</url>
     <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
@@ -182,27 +121,64 @@ JVM-->程序计数器
       </tags>
   </entry>
   <entry>
-    <title>MySQL之索引</title>
-    <url>/2023/06/08/MySQL/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/</url>
-    <content><![CDATA[<img style="width:400px" data-src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/mysql.jpg">
+    <title>Java虚拟机</title>
+    <url>/2023/05/20/Java/JVM/</url>
+    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
 
 <span id="more"></span>
 
-<h1 id="1-什么是索引"><a href="#1-什么是索引" class="headerlink" title="1.什么是索引"></a>1.什么是索引</h1><h2 id="1-1索引的数据结构（B-树）"><a href="#1-1索引的数据结构（B-树）" class="headerlink" title="1.1索引的数据结构（B+树）"></a>1.1索引的数据结构（B+树）</h2><h3 id="问题：为什么不用二叉搜索树？"><a href="#问题：为什么不用二叉搜索树？" class="headerlink" title="问题：为什么不用二叉搜索树？"></a><strong>问题：为什么不用二叉搜索树？</strong></h3><p>二叉搜索树，也是最简单的树结构。</p>
-<p><strong>主要特征</strong>：</p>
-<p>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>左、右子树也分别为二叉排序树；<br>那么，二叉搜索树为什么不适合用作数据库索引？</p>
-<p>(1)、当数据量大的时候，树的高度会比较高，数据量大的时候，查询会比较慢；</p>
-<p>(2)、每个节点只存储一个记录，可能导致一次查询有很多次磁盘IO；</p>
+<img style="width:800px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/jvm.png">
+
+
+
+<pre class="mermaid">graph LR;
+JVM-->堆
+JVM-->栈
+JVM-->方法区
+JVM-->程序计数器
+
+堆-->新生代
+堆-->老年代
+
+新生代-->Eden
+新生代-->from
+新生代-->to
+
+方法区-->常量池
+方法区-->被共享的线程区域</pre>
+
+<h2 id="1-JVM中存储类型"><a href="#1-JVM中存储类型" class="headerlink" title="1.JVM中存储类型"></a>1.JVM中存储类型</h2><p><strong>堆</strong>：存储的是对象本身</p>
+<p><strong>栈</strong>：（1）存储对象的引用 （2）存储基本数据类型  （3） 方法调用时进栈，方法执行完退栈</p>
+<p><strong>方法区：</strong> （1）常量池、静态区</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"> <span class="number">1</span> <span class="type">String</span> <span class="variable">s1</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">2</span> <span class="type">String</span> <span class="variable">s2</span> <span class="operator">=</span> <span class="string">&quot;Hello&quot;</span>;</span><br><span class="line"> <span class="number">3</span> <span class="type">String</span> <span class="variable">s3</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="string">&quot;lo&quot;</span>;</span><br><span class="line"> <span class="number">4</span> <span class="type">String</span> <span class="variable">s4</span> <span class="operator">=</span> <span class="string">&quot;Hel&quot;</span> + <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;lo&quot;</span>);</span><br><span class="line"> <span class="number">5</span> <span class="type">String</span> <span class="variable">s5</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">String</span>(<span class="string">&quot;Hello&quot;</span>);</span><br><span class="line"> <span class="number">6</span> <span class="type">String</span> <span class="variable">s6</span> <span class="operator">=</span> s5.intern();</span><br><span class="line"> <span class="number">7</span> <span class="type">String</span> <span class="variable">s7</span> <span class="operator">=</span> <span class="string">&quot;H&quot;</span>;</span><br><span class="line"> <span class="number">8</span> <span class="type">String</span> <span class="variable">s8</span> <span class="operator">=</span> <span class="string">&quot;ello&quot;</span>;</span><br><span class="line"> <span class="number">9</span> <span class="type">String</span> <span class="variable">s9</span> <span class="operator">=</span> s7 + s8;</span><br><span class="line"><span class="number">10</span>           </span><br><span class="line"><span class="number">11</span> System.out.println(s1 == s2);  <span class="comment">// true</span></span><br><span class="line"><span class="number">12</span> System.out.println(s1 == s3);  <span class="comment">// true</span></span><br><span class="line"><span class="number">13</span> System.out.println(s1 == s4);  <span class="comment">// false</span></span><br><span class="line"><span class="number">14</span> System.out.println(s1 == s9);  <span class="comment">// false</span></span><br><span class="line"><span class="number">15</span> System.out.println(s4 == s5);  <span class="comment">// false</span></span><br><span class="line"><span class="number">16</span> System.out.println(s1 == s6);  <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+
 ]]></content>
       <categories>
-        <category>数据库</category>
-        <category>MySQL</category>
-        <category>索引</category>
+        <category>Java</category>
       </categories>
       <tags>
-        <tag>索引</tag>
-        <tag>MySQL</tag>
-        <tag>关系型数据库</tag>
+        <tag>JVM</tag>
+        <tag>Java</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java基础</title>
+    <url>/2023/06/08/Java/Java%E5%9F%BA%E7%A1%80/</url>
+    <content><![CDATA[<img style="width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/java.jpg">
+
+<span id="more"></span>
+
+<h4 id="1-String、StringBuffer、StringBuilder的区别"><a href="#1-String、StringBuffer、StringBuilder的区别" class="headerlink" title="1.String、StringBuffer、StringBuilder的区别"></a>1.String、StringBuffer、StringBuilder的区别</h4><ul>
+<li>String是不可变的，如果尝试去修改，会新⽣成㇐个字符串对象，StringBuffer和StringBuilder是可变的， StringBuffer和StringBuilder都是在原对象上操作 </li>
+<li>StringBuffer是线程安全的，StringBuilder是线程不安全的，所以在单线程环境下StringBuilder效率会更⾼ </li>
+<li>对于操作效率而言，一般来说，StringBuilder &gt; StringBuffer &gt; String；</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java基础</tag>
       </tags>
   </entry>
   <entry>
@@ -248,19 +224,6 @@ JVM-->程序计数器
         <tag>双指针</tag>
         <tag>手撕算法题</tag>
         <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>IO多路复用机制</title>
-    <url>/2023/06/09/Redis/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</url>
-    <content><![CDATA[<h1 id="1-同步阻塞机制（BIO）"><a href="#1-同步阻塞机制（BIO）" class="headerlink" title="1.同步阻塞机制（BIO）"></a>1.同步阻塞机制（BIO）</h1>]]></content>
-      <categories>
-        <category>Redis</category>
-      </categories>
-      <tags>
-        <tag>Redis</tag>
-        <tag>IO</tag>
-        <tag>多路复用</tag>
       </tags>
   </entry>
   <entry>
@@ -370,6 +333,27 @@ JVM-->程序计数器
       </tags>
   </entry>
   <entry>
+    <title>常见的排序算法--快速排序</title>
+    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
+    <content><![CDATA[<img style= "width:400px" data-src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
+
+<span id="more"></span>
+
+<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法</category>
+        <category>排序算法</category>
+      </categories>
+      <tags>
+        <tag>手撕算法题</tag>
+        <tag>排序算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>按身高排序</title>
     <url>/2023/04/25/LeetCode/%E6%8C%89%E8%BA%AB%E9%AB%98%E6%8E%92%E5%BA%8F/</url>
     <content><![CDATA[<img style = "width:400px" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/leetcode.jpg">
@@ -409,24 +393,71 @@ JVM-->程序计数器
       </tags>
   </entry>
   <entry>
-    <title>常见的排序算法--快速排序</title>
-    <url>/2023/04/25/LeetCode/%E5%B8%B8%E8%A7%81%E7%9A%84%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</url>
-    <content><![CDATA[<img style= "width:400px" data-src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/QuickSort.jpg">
+    <title>MySQL之索引</title>
+    <url>/2023/06/08/MySQL/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/</url>
+    <content><![CDATA[<img style="width:400px" data-src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/mysql.jpg">
 
 <span id="more"></span>
 
-<h1 id="1-Java实现"><a href="#1-Java实现" class="headerlink" title="1.Java实现"></a>1.Java实现</h1><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">QuickSort</span> &#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">quickSort</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (left &lt; right) &#123;</span><br><span class="line">            <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> partition(arr, left, right);</span><br><span class="line">            quickSort(arr, left, pivot - <span class="number">1</span>);</span><br><span class="line">            quickSort(arr, pivot + <span class="number">1</span>, right);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">partition</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> left, <span class="type">int</span> right)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">pivot</span> <span class="operator">=</span> arr[right];</span><br><span class="line">        <span class="type">int</span> <span class="variable">i</span> <span class="operator">=</span> left - <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="type">int</span> <span class="variable">j</span> <span class="operator">=</span> left; j &lt; right; j++) &#123;</span><br><span class="line">            <span class="keyword">if</span> (arr[j] &lt; pivot) &#123;</span><br><span class="line">                i++;</span><br><span class="line">                swap(arr, i, j);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        swap(arr, i + <span class="number">1</span>, right);</span><br><span class="line">        <span class="keyword">return</span> i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">swap</span><span class="params">(<span class="type">int</span>[] arr, <span class="type">int</span> i, <span class="type">int</span> j)</span> &#123;</span><br><span class="line">        <span class="type">int</span> <span class="variable">temp</span> <span class="operator">=</span> arr[i];</span><br><span class="line">        arr[i] = arr[j];</span><br><span class="line">        arr[j] = temp;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="2-golang实现"><a href="#2-golang实现" class="headerlink" title="2.golang实现"></a>2.golang实现</h1><figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">quickSort</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> &#123;</span><br><span class="line">    <span class="keyword">if</span> left &lt; right &#123;</span><br><span class="line">        pivot := partition(arr, left, right)</span><br><span class="line">        quickSort(arr, left, pivot<span class="number">-1</span>)</span><br><span class="line">        quickSort(arr, pivot+<span class="number">1</span>, right)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">partition</span><span class="params">(arr []<span class="type">int</span>, left, right <span class="type">int</span>)</span></span> <span class="type">int</span> &#123;</span><br><span class="line">    pivot := arr[right]</span><br><span class="line">    i := left - <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> j := left; j &lt; right; j++ &#123;</span><br><span class="line">        <span class="keyword">if</span> arr[j] &lt; pivot &#123;</span><br><span class="line">            i++</span><br><span class="line">            arr[i], arr[j] = arr[j], arr[i]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    arr[i+<span class="number">1</span>], arr[right] = arr[right], arr[i+<span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> i + <span class="number">1</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h1 id="1-什么是索引"><a href="#1-什么是索引" class="headerlink" title="1.什么是索引"></a>1.什么是索引</h1><h2 id="1-1索引的数据结构（B-树）"><a href="#1-1索引的数据结构（B-树）" class="headerlink" title="1.1索引的数据结构（B+树）"></a>1.1索引的数据结构（B+树）</h2><h3 id="问题：为什么不用二叉搜索树？"><a href="#问题：为什么不用二叉搜索树？" class="headerlink" title="问题：为什么不用二叉搜索树？"></a><strong>问题：为什么不用二叉搜索树？</strong></h3><p>二叉搜索树，也是最简单的树结构。</p>
+<p><strong>主要特征</strong>：</p>
+<p>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>左、右子树也分别为二叉排序树；<br>那么，二叉搜索树为什么不适合用作数据库索引？</p>
+<p>(1)、当数据量大的时候，树的高度会比较高，数据量大的时候，查询会比较慢；</p>
+<p>(2)、每个节点只存储一个记录，可能导致一次查询有很多次磁盘IO；</p>
 ]]></content>
       <categories>
-        <category>算法</category>
-        <category>排序算法</category>
+        <category>数据库</category>
+        <category>MySQL</category>
+        <category>索引</category>
       </categories>
       <tags>
-        <tag>手撕算法题</tag>
-        <tag>排序算法</tag>
+        <tag>索引</tag>
+        <tag>MySQL</tag>
+        <tag>关系型数据库</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IO多路复用机制</title>
+    <url>/2023/06/09/Redis/%E5%A4%9A%E8%B7%AF%E5%A4%8D%E7%94%A8/</url>
+    <content><![CDATA[<h1 id="1-同步阻塞机制（BIO）"><a href="#1-同步阻塞机制（BIO）" class="headerlink" title="1.同步阻塞机制（BIO）"></a>1.同步阻塞机制（BIO）</h1>]]></content>
+      <categories>
+        <category>Redis</category>
+      </categories>
+      <tags>
+        <tag>Redis</tag>
+        <tag>IO</tag>
+        <tag>多路复用</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Kubernetes是什么</title>
+    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
+    <content><![CDATA[<img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
+
+<span id="more"></span>
+
+<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
+<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
+<p>工作节点–是办事的</p>
+<p>主节点中：</p>
+<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
+<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
+<p>Controller-manager 状态管理者，重分配，重平衡</p>
+<p>scheduler 调度者 根据现有的资源进行分配</p>
+<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
+<p>工作节点：</p>
+<p>kubelet是接受命令的程序，并且上报目前的信息</p>
+<p>容器运行时（docker之类）</p>
+<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
+<p>kube-proxy是网络代理</p>
+<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
+<p>pause容器是每个Pod容器都存在的，</p>
+]]></content>
+      <categories>
+        <category>DevOps</category>
+      </categories>
+      <tags>
+        <tag>k8s</tag>
       </tags>
   </entry>
   <entry>
@@ -441,6 +472,71 @@ JVM-->程序计数器
       <categories>
         <category>web前端</category>
       </categories>
+  </entry>
+  <entry>
+    <title>微信支付从入门到入土——简单支付</title>
+    <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
+    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
+
+<span id="more"></span>
+
+<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
+
+<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
+
+<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
+]]></content>
+      <categories>
+        <category>支付模块</category>
+      </categories>
+      <tags>
+        <tag>微信支付</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>node版本管理利器--nvm的安装使用</title>
+    <url>/2023/04/20/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
+    <content><![CDATA[<img style="width:400px" data-src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
+
+<span id="more"></span>
+
+<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com"><a href="#1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com" class="headerlink" title="1.[下载安装包](nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com))"></a>1.[下载安装包](<a href="https://nvm.uihtm.com/">nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com)</a>)</h2><p>​	在官网上针对您的系统进行相应的下载。下载完之后安装，都是傻瓜式的操作，这不多赘述。</p>
+<p>如果您有幸生活在“墙国”，需要配置淘宝镜像，才能正常使用该利器。</p>
+<h2 id="2-nvm淘宝镜像设置"><a href="#2-nvm淘宝镜像设置" class="headerlink" title="2.nvm淘宝镜像设置"></a>2.nvm淘宝镜像设置</h2><p>使用命令，查看配置文件所在目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm root</span><br></pre></td></tr></table></figure>
+
+<p>如果不出意外，应该会显示nvm的安装目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Current Root: C:\Users\winford\AppData\Roaming\nvm</span><br></pre></td></tr></table></figure>
+
+<p>copy一下，cd 进入</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/4/20     21:11                v16.0.0</span><br><span class="line">d-----         2023/4/20     21:03                v16.14.1</span><br><span class="line">-a----         2015/9/30     14:09             86 elevate.cmd</span><br><span class="line">-a----         2015/9/30     14:09            348 elevate.vbs</span><br><span class="line">-a----         2015/9/30     14:09            491 install.cmd</span><br><span class="line">-a----         2015/9/30     14:09          15086 nodejs.ico</span><br><span class="line">-a----          2018/8/8      0:46        6150648 nvm.exe</span><br><span class="line">-a----         2023/4/20     21:02            175 settings.txt</span><br><span class="line">-a----         2023/4/20     20:57          14051 unins000.dat</span><br><span class="line">-a----         2023/4/20     20:56         737272 unins000.exe</span><br><span class="line">-a----         2023/4/20     20:57          11401 unins000.msg</span><br></pre></td></tr></table></figure>
+
+<p>大概是这样的目录结构</p>
+<p>打开setting.txt</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root: C:\Users\winford\AppData\Roaming\nvm</span><br><span class="line">path: C:\Program Files\nodejs</span><br><span class="line"></span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
+
+<p>加上下面两行代码就好了</p>
+<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1-查看可下载的版本"><a href="#1-查看可下载的版本" class="headerlink" title="1.查看可下载的版本"></a>1.查看可下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list available</span><br><span class="line"></span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    20.0.0    |   18.16.0    |   0.12.18    |   0.11.16    |</span><br><span class="line">|    19.9.0    |   18.15.0    |   0.12.17    |   0.11.15    |</span><br><span class="line">|    19.8.1    |   18.14.2    |   0.12.16    |   0.11.14    |</span><br><span class="line">|    19.8.0    |   18.14.1    |   0.12.15    |   0.11.13    |</span><br><span class="line">|    19.7.0    |   18.14.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    19.6.1    |   18.13.0    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    19.6.0    |   18.12.1    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    19.5.0    |   18.12.0    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    19.4.0    |   16.20.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    19.3.0    |   16.19.1    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    19.2.0    |   16.19.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">|    19.1.0    |   16.18.1    |    0.12.7    |    0.11.5    |</span><br><span class="line">|    19.0.1    |   16.18.0    |    0.12.6    |    0.11.4    |</span><br><span class="line">|    19.0.0    |   16.17.1    |    0.12.5    |    0.11.3    |</span><br><span class="line">|   18.11.0    |   16.17.0    |    0.12.4    |    0.11.2    |</span><br><span class="line">|   18.10.0    |   16.16.0    |    0.12.3    |    0.11.1    |</span><br><span class="line">|    18.9.1    |   16.15.1    |    0.12.2    |    0.11.0    |</span><br><span class="line">|    18.9.0    |   16.15.0    |    0.12.1    |    0.9.12    |</span><br><span class="line">|    18.8.0    |   16.14.2    |    0.12.0    |    0.9.11    |</span><br><span class="line">|    18.7.0    |   16.14.1    |   0.10.48    |    0.9.10    |</span><br><span class="line"></span><br><span class="line">This is a partial list. For a complete list, visit https://nodejs.org/download/release</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-下载并安装特定版本"><a href="#2-下载并安装特定版本" class="headerlink" title="2.下载并安装特定版本"></a>2.下载并安装特定版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm install [版本号]</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-查看已下载的版本"><a href="#3-查看已下载的版本" class="headerlink" title="3.查看已下载的版本"></a>3.查看已下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list</span><br><span class="line"></span><br><span class="line">    16.14.1</span><br><span class="line">  * 16.0.0 (Currently using 64-bit executable)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4-使用已安装的版本"><a href="#4-使用已安装的版本" class="headerlink" title="4.使用已安装的版本"></a>4.使用已安装的版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm use [已安装的版本号] ---需要管理员权限</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>web前端</category>
+      </categories>
+      <tags>
+        <tag>nvm</tag>
+        <tag>node</tag>
+      </tags>
   </entry>
   <entry>
     <title>打开golang的大门</title>
@@ -627,82 +723,6 @@ zslx-->无符号
       </categories>
   </entry>
   <entry>
-    <title>node版本管理利器--nvm的安装使用</title>
-    <url>/2023/04/20/%E5%B7%A5%E5%85%B7%E4%BD%BF%E7%94%A8/nvm%E7%9A%84%E5%AE%89%E8%A3%85%E4%BD%BF%E7%94%A8/</url>
-    <content><![CDATA[<img style="width:400px" data-src= "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/nvm.jpg">
-
-<span id="more"></span>
-
-<h1 id="一、安装"><a href="#一、安装" class="headerlink" title="一、安装"></a>一、安装</h1><h2 id="1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com"><a href="#1-下载安装包-nvm文档手册-nvm是一个nodejs版本管理工具-nvm中文网-uihtm-com" class="headerlink" title="1.[下载安装包](nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com))"></a>1.[下载安装包](<a href="https://nvm.uihtm.com/">nvm文档手册 - nvm是一个nodejs版本管理工具 - nvm中文网 (uihtm.com)</a>)</h2><p>​	在官网上针对您的系统进行相应的下载。下载完之后安装，都是傻瓜式的操作，这不多赘述。</p>
-<p>如果您有幸生活在“墙国”，需要配置淘宝镜像，才能正常使用该利器。</p>
-<h2 id="2-nvm淘宝镜像设置"><a href="#2-nvm淘宝镜像设置" class="headerlink" title="2.nvm淘宝镜像设置"></a>2.nvm淘宝镜像设置</h2><p>使用命令，查看配置文件所在目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvm root</span><br></pre></td></tr></table></figure>
-
-<p>如果不出意外，应该会显示nvm的安装目录</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Current Root: C:\Users\winford\AppData\Roaming\nvm</span><br></pre></td></tr></table></figure>
-
-<p>copy一下，cd 进入</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Mode                 LastWriteTime         Length Name</span><br><span class="line">----                 -------------         ------ ----</span><br><span class="line">d-----         2023/4/20     21:11                v16.0.0</span><br><span class="line">d-----         2023/4/20     21:03                v16.14.1</span><br><span class="line">-a----         2015/9/30     14:09             86 elevate.cmd</span><br><span class="line">-a----         2015/9/30     14:09            348 elevate.vbs</span><br><span class="line">-a----         2015/9/30     14:09            491 install.cmd</span><br><span class="line">-a----         2015/9/30     14:09          15086 nodejs.ico</span><br><span class="line">-a----          2018/8/8      0:46        6150648 nvm.exe</span><br><span class="line">-a----         2023/4/20     21:02            175 settings.txt</span><br><span class="line">-a----         2023/4/20     20:57          14051 unins000.dat</span><br><span class="line">-a----         2023/4/20     20:56         737272 unins000.exe</span><br><span class="line">-a----         2023/4/20     20:57          11401 unins000.msg</span><br></pre></td></tr></table></figure>
-
-<p>大概是这样的目录结构</p>
-<p>打开setting.txt</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">root: C:\Users\winford\AppData\Roaming\nvm</span><br><span class="line">path: C:\Program Files\nodejs</span><br><span class="line"></span><br><span class="line">node_mirror: https://npm.taobao.org/mirrors/node/</span><br><span class="line">npm_mirror: https://npm.taobao.org/mirrors/npm/</span><br></pre></td></tr></table></figure>
-
-<p>加上下面两行代码就好了</p>
-<h1 id="二、使用"><a href="#二、使用" class="headerlink" title="二、使用"></a>二、使用</h1><h2 id="1-查看可下载的版本"><a href="#1-查看可下载的版本" class="headerlink" title="1.查看可下载的版本"></a>1.查看可下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list available</span><br><span class="line"></span><br><span class="line">|   CURRENT    |     LTS      |  OLD STABLE  | OLD UNSTABLE |</span><br><span class="line">|--------------|--------------|--------------|--------------|</span><br><span class="line">|    20.0.0    |   18.16.0    |   0.12.18    |   0.11.16    |</span><br><span class="line">|    19.9.0    |   18.15.0    |   0.12.17    |   0.11.15    |</span><br><span class="line">|    19.8.1    |   18.14.2    |   0.12.16    |   0.11.14    |</span><br><span class="line">|    19.8.0    |   18.14.1    |   0.12.15    |   0.11.13    |</span><br><span class="line">|    19.7.0    |   18.14.0    |   0.12.14    |   0.11.12    |</span><br><span class="line">|    19.6.1    |   18.13.0    |   0.12.13    |   0.11.11    |</span><br><span class="line">|    19.6.0    |   18.12.1    |   0.12.12    |   0.11.10    |</span><br><span class="line">|    19.5.0    |   18.12.0    |   0.12.11    |    0.11.9    |</span><br><span class="line">|    19.4.0    |   16.20.0    |   0.12.10    |    0.11.8    |</span><br><span class="line">|    19.3.0    |   16.19.1    |    0.12.9    |    0.11.7    |</span><br><span class="line">|    19.2.0    |   16.19.0    |    0.12.8    |    0.11.6    |</span><br><span class="line">|    19.1.0    |   16.18.1    |    0.12.7    |    0.11.5    |</span><br><span class="line">|    19.0.1    |   16.18.0    |    0.12.6    |    0.11.4    |</span><br><span class="line">|    19.0.0    |   16.17.1    |    0.12.5    |    0.11.3    |</span><br><span class="line">|   18.11.0    |   16.17.0    |    0.12.4    |    0.11.2    |</span><br><span class="line">|   18.10.0    |   16.16.0    |    0.12.3    |    0.11.1    |</span><br><span class="line">|    18.9.1    |   16.15.1    |    0.12.2    |    0.11.0    |</span><br><span class="line">|    18.9.0    |   16.15.0    |    0.12.1    |    0.9.12    |</span><br><span class="line">|    18.8.0    |   16.14.2    |    0.12.0    |    0.9.11    |</span><br><span class="line">|    18.7.0    |   16.14.1    |   0.10.48    |    0.9.10    |</span><br><span class="line"></span><br><span class="line">This is a partial list. For a complete list, visit https://nodejs.org/download/release</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-下载并安装特定版本"><a href="#2-下载并安装特定版本" class="headerlink" title="2.下载并安装特定版本"></a>2.下载并安装特定版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm install [版本号]</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-查看已下载的版本"><a href="#3-查看已下载的版本" class="headerlink" title="3.查看已下载的版本"></a>3.查看已下载的版本</h2><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">PS C:\Users\winford\AppData\Roaming\nvm&gt; nvm list</span><br><span class="line"></span><br><span class="line">    16.14.1</span><br><span class="line">  * 16.0.0 (Currently using 64-bit executable)</span><br></pre></td></tr></table></figure>
-
-<h2 id="4-使用已安装的版本"><a href="#4-使用已安装的版本" class="headerlink" title="4.使用已安装的版本"></a>4.使用已安装的版本</h2><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">nvm use [已安装的版本号] ---需要管理员权限</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>web前端</category>
-      </categories>
-      <tags>
-        <tag>nvm</tag>
-        <tag>node</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>全网最火的流程引擎--flowable</title>
-    <url>/2023/04/05/%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E&amp;&amp;%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
-    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
-      <categories>
-        <category>流程引擎</category>
-      </categories>
-      <tags>
-        <tag>flowable</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>微信支付从入门到入土——简单支付</title>
-    <url>/2023/04/09/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98/%E5%BE%AE%E4%BF%A1%E6%94%AF%E4%BB%98%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%85%A5%E5%9C%9F(%E4%B8%80)/</url>
-    <content><![CDATA[<img style="width:400px" src ="https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/wxpay.jpg">
-
-<span id="more"></span>
-
-<h3 id="一、流程总览"><a href="#一、流程总览" class="headerlink" title="一、流程总览"></a>一、流程总览</h3><img width = "800" height = "500" src = "https://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230406131413.png"/>
-
-<h3 id="二、"><a href="#二、" class="headerlink" title="二、"></a>二、</h3><h3 id="三、基于微信SDK的具体业务实现"><a href="#三、基于微信SDK的具体业务实现" class="headerlink" title="三、基于微信SDK的具体业务实现"></a>三、基于微信SDK的具体业务实现</h3><h5 id="1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"><a href="#1-首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口" class="headerlink" title="1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口"></a>1.首先要引入微信支付sdk的maven依赖，该sdk基于微信支付V3接口</h5><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.github.wechatpay-apiv3<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>wechatpay-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.2.7<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h5 id="2-基于构建微信支付单例"><a href="#2-基于构建微信支付单例" class="headerlink" title="2.基于构建微信支付单例"></a>2.基于构建微信支付单例</h5><p>微信不允许重复构建，只能采用单例的形式。否则会报错。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WechatPayConfig</span> &#123;</span><br><span class="line">    <span class="comment">/** 商户号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantId</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户API私钥路径 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">privateKeyPath</span> <span class="operator">=</span> <span class="string">&quot;D:\\XXXXX\\apiclient_key.pem&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户证书序列号 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">merchantSerialNumber</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line">    <span class="comment">/** 商户APIV3密钥 */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">String</span> <span class="variable">apiV3key</span> <span class="operator">=</span> <span class="string">&quot;XXXXXXXXXXXXXXXXXXXXXXXXXXX&quot;</span>;</span><br><span class="line"><span class="comment">//先建造出微信通用的config的Bean，这个config需要用到两次</span></span><br><span class="line"><span class="comment">//第一次是生成prepayId</span></span><br><span class="line"><span class="comment">//第二次则是在微信回调服务器验签</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> Config <span class="title function_">getConfig</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">Config</span> <span class="variable">config</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">RSAAutoCertificateConfig</span>.Builder()</span><br><span class="line">                .merchantId(merchantId)</span><br><span class="line">                .privateKeyFromPath(privateKeyPath)</span><br><span class="line">                .merchantSerialNumber(merchantSerialNumber)</span><br><span class="line">                .apiV3Key(apiV3key)</span><br><span class="line">                .build();</span><br><span class="line">        <span class="keyword">return</span> config;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//建造生成prepayId的bean，本文以小程序支付为例，其他方式支付方法类似</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiService <span class="title function_">getJsapiService</span> <span class="params">()</span>&#123;</span><br><span class="line">        <span class="comment">// 构建service</span></span><br><span class="line">        <span class="type">JsapiService</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiService</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//不过博主建议用微信sdk提供的另一个bean</span></span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="keyword">public</span> JsapiServiceExtension <span class="title function_">getJsapiServiceExtension</span><span class="params">()</span>&#123;</span><br><span class="line">        <span class="type">JsapiServiceExtension</span> <span class="variable">service</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">JsapiServiceExtension</span>.Builder().config(config).build();</span><br><span class="line">        <span class="keyword">return</span> service;</span><br><span class="line">    &#125;</span><br><span class="line">	<span class="comment">//这两种方法区别是第二种更强大，不仅生成了prepayId还生成了前端需要的其他参数</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h5 id="3-实现具体业务–生成prepayId"><a href="#3-实现具体业务–生成prepayId" class="headerlink" title="3.实现具体业务–生成prepayId"></a>3.实现具体业务–生成prepayId</h5><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="type">String</span> <span class="variable">openId</span> <span class="operator">=</span> XXXXXXXX  <span class="comment">//小程序下唯一uid</span></span><br><span class="line"><span class="type">BigDecimal</span> <span class="variable">price</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">BigDecimal</span>(<span class="string">&quot;10&quot;</span>); <span class="comment">//声明价格</span></span><br><span class="line"><span class="type">String</span> <span class="variable">description</span> <span class="operator">=</span> sysCode.getName()+<span class="string">&quot;-&quot;</span>+price+<span class="string">&quot;元&quot;</span>; <span class="comment">//商品描述</span></span><br><span class="line"><span class="type">PrepayRequest</span> <span class="variable">prepayRequest</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">PrepayRequest</span>();    </span><br><span class="line">prepayRequest.setAppid(appId);</span><br><span class="line"><span class="type">Amount</span> <span class="variable">amount</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Amount</span>();</span><br><span class="line">amount.setCurrency(<span class="string">&quot;CNY&quot;</span>);</span><br><span class="line">amount.setTotal(price.intValue()*<span class="number">100</span>);  <span class="comment">//要把BigDecimal转成int，单位是分</span></span><br><span class="line">prepayRequest.setAmount(amount);</span><br><span class="line"></span><br><span class="line">prepayRequest.setMchid(merchantId);         </span><br><span class="line">prepayRequest.setOutTradeNo(IdWorker.getIdStr());     <span class="comment">//订单号</span></span><br><span class="line">prepayRequest.setDescription(description);</span><br><span class="line">prepayRequest.setNotifyUrl(notifyUrl);                <span class="comment">//用户支付成功后的回调地址</span></span><br><span class="line"><span class="type">Payer</span> <span class="variable">payer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Payer</span>();</span><br><span class="line">payer.setOpenid(openId);                  </span><br><span class="line">prepayRequest.setPayer(payer);</span><br><span class="line"></span><br><span class="line"><span class="type">PrepayWithRequestPaymentResponse</span> <span class="variable">response</span> <span class="operator">=</span> jsapiServiceExtension.prepayWithRequestPayment(prepayRequest);</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">RabbitResponse</span>(RabbitResponseEnums.SUCCESS,response);</span><br></pre></td></tr></table></figure>
-
-<h5 id="4-回调处理–验签"><a href="#4-回调处理–验签" class="headerlink" title="4.回调处理–验签"></a>4.回调处理–验签</h5><p>（未完待续。。。）</p>
-]]></content>
-      <categories>
-        <category>支付模块</category>
-      </categories>
-      <tags>
-        <tag>微信支付</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>SKP一轮</title>
     <url>/2023/06/08/%E9%9D%A2%E7%BB%8F/2023%E5%B9%B46%E6%9C%888%E6%97%A5%EF%BC%88SKP%E9%9D%A2%E8%AF%95%EF%BC%89/</url>
     <content><![CDATA[<img style= "width:400px" src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/%E9%9D%A2%E8%AF%95.jpeg">
@@ -793,34 +813,14 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title>Kubernetes是什么</title>
-    <url>/2023/05/18/kubernetes/1.%E5%88%9D%E8%AF%86kubernetes/</url>
-    <content><![CDATA[<img style ="width:400px"  src = "http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/k8s.jpg">
-
-<span id="more"></span>
-
-<h2 id="一、容器编排技术"><a href="#一、容器编排技术" class="headerlink" title="一、容器编排技术"></a>一、容器编排技术</h2><p>Docker是单个的容器，而kubernetes是管理这些容器的舵手。类似于docker-compose，虽然docker-compose和kubernates都是容器编排技术，但是docker-compose只是在单机上运行，而kubernetes可以在多台实例上运行。。当在物理服务器上安装一套传统的操作系统(Linux或Windows)时，操作系统会对服务器的物理资源进行抽象，并对进程进行调动，等等。当在云上安装Kubernetes时，它会对云上的资源进行抽象，并对多种云原生微服务应用进行调度。所以，kubernetes又被称之为云操作系统。</p>
-<h2 id="二、Kubernetes架构"><a href="#二、Kubernetes架构" class="headerlink" title="二、Kubernetes架构"></a>二、Kubernetes架构</h2><p>主节点–是下命令的</p>
-<p>工作节点–是办事的</p>
-<p>主节点中：</p>
-<p>kubectl是一个命令向主节点发送指令，主节点再向工作节点发送指令。</p>
-<p> API Server 是一个枢纽，工作节点上线，下线都要向主节点进行注册，互联互通的数据都是由API server来管理的</p>
-<p>Controller-manager 状态管理者，重分配，重平衡</p>
-<p>scheduler 调度者 根据现有的资源进行分配</p>
-<p>etcd将目前的状态信息和配置信息进行持久化管理</p>
-<p>工作节点：</p>
-<p>kubelet是接受命令的程序，并且上报目前的信息</p>
-<p>容器运行时（docker之类）</p>
-<p>Pod 作为k8s中，最小的处理单元，Pod本身也是一个容器</p>
-<p>kube-proxy是网络代理</p>
-<h2 id="三、Pod详细讲解"><a href="#三、Pod详细讲解" class="headerlink" title="三、Pod详细讲解"></a>三、Pod详细讲解</h2><p>Pod是kubernetes处理的最小单元，一个Pod可以放一个容器（单容器Pod），但是一般都会放置多个容器（多容器Pod），好处是在一个Pod里面的容器可以共享一个IP地址。 </p>
-<p>pause容器是每个Pod容器都存在的，</p>
-]]></content>
+    <title>全网最火的流程引擎--flowable</title>
+    <url>/2023/04/05/%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8E&amp;&amp;%E8%A7%84%E5%88%99%E5%BC%95%E6%93%8E/%E5%85%A8%E7%BD%91%E6%9C%80%E7%81%AB%E7%9A%84%E6%B5%81%E7%A8%8B%E5%BC%95%E6%93%8Eflowable/</url>
+    <content><![CDATA[<h1 id=""><a href="#" class="headerlink" title=""></a></h1>]]></content>
       <categories>
-        <category>DevOps</category>
+        <category>流程引擎</category>
       </categories>
       <tags>
-        <tag>k8s</tag>
+        <tag>flowable</tag>
       </tags>
   </entry>
 </search>
