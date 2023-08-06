@@ -1387,16 +1387,16 @@ pre code {
   width: 16px;
   background: #222;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
   position: fixed;
   z-index: 30;
 }
 .sidebar-toggle:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .sidebar-toggle {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 .sidebar-toggle:hover .toggle-line {
@@ -1587,7 +1587,7 @@ pre code {
   transition: bottom 0.2s ease-in-out;
   background: #222;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.6;
   position: fixed;
   z-index: 30;
 }
@@ -1602,11 +1602,11 @@ pre code {
   width: 26px;
 }
 .back-to-top:hover {
-  opacity: 0.5;
+  opacity: 0.8;
 }
 @media (max-width: 991px) {
   .back-to-top {
-    opacity: 0.5;
+    opacity: 0.8;
   }
 }
 .back-to-top:hover {
