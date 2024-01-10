@@ -689,7 +689,7 @@ zslx-->无符号
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>FEB</title>
     <url>/2024/01/10/LeetCode/%5B%E5%A4%A7%E9%9B%AA%E8%8F%9C%5D%20FEB/</url>
     <content><![CDATA[<h1 id="1-题目"><a href="#1-题目" class="headerlink" title="1.题目"></a>1.题目</h1><p>有一个长度为 N的字符串 S，其中的每个字符要么是 <code>B</code>，要么是 <code>E</code>。</p>
 <p>我们规定 S的价值等于其中包含的子串 <code>BB</code> 以及子串 <code>EE</code> 的数量之和。</p>
