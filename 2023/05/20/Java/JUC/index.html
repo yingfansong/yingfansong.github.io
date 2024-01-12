@@ -20,23 +20,20 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yingfansong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.线程安全1.1概念在拥有共享数据的多条线程并行执行的程序中，线程 安全的代码会通过同步机制保证各个线程都可以正常 且正确的执行，不会出现数据污染等意外情况。 1.2 线程安全三大特性 原子性 ：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何 因素打断，要么就都不执行。i &#x3D; i + 1。 可见性 ： 当多个线程访问同一个变量时，一个线程修改了这个变量的值，其 他线程">
+    <meta name="description" content="graph LR; 并发--&gt;线程安全 线程安全--&gt;三大特性 线程安全--&gt;volatile 并发--&gt;锁 锁--&gt;sychronized">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java多线程与并发编程">
 <meta property="og:url" content="https://yingfansong.github.io/2023/05/20/Java/JUC/index.html">
-<meta property="og:site_name" content="WinFord">
-<meta property="og:description" content="1.线程安全1.1概念在拥有共享数据的多条线程并行执行的程序中，线程 安全的代码会通过同步机制保证各个线程都可以正常 且正确的执行，不会出现数据污染等意外情况。 1.2 线程安全三大特性 原子性 ：即一个操作或者多个操作 要么全部执行并且执行的过程不会被任何 因素打断，要么就都不执行。i &#x3D; i + 1。 可见性 ： 当多个线程访问同一个变量时，一个线程修改了这个变量的值，其 他线程">
+<meta property="og:site_name" content="狠赚笔">
+<meta property="og:description" content="graph LR; 并发--&gt;线程安全 线程安全--&gt;三大特性 线程安全--&gt;volatile 并发--&gt;锁 锁--&gt;sychronized">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230609012225.png">
-<meta property="og:image" content="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230609012247.png">
 <meta property="article:published_time" content="2023-05-20T06:12:00.000Z">
-<meta property="article:modified_time" content="2024-01-10T15:25:36.700Z">
+<meta property="article:modified_time" content="2024-01-12T14:00:29.760Z">
 <meta property="article:author" content="WinFord">
 <meta property="article:tag" content="JUC">
 <meta property="article:tag" content="多线程">
 <meta property="article:tag" content="并发编程">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230609012225.png">
 
 
 <link rel="canonical" href="https://yingfansong.github.io/2023/05/20/Java/JUC/">
@@ -46,7 +43,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yingfansong.github.io/2023/05/20/Java/JUC/","path":"2023/05/20/Java/JUC/","title":"Java多线程与并发编程"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Java多线程与并发编程 | WinFord</title>
+<title>Java多线程与并发编程 | 狠赚笔</title>
   
 
 
@@ -80,10 +77,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">WinFord</p>
+      <p class="site-title">狠赚笔</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">无志之人常立志，有志之人立长志</p>
+      <p class="site-subtitle" itemprop="description">简简单单敲代码</p>
   </div>
 
   <div class="site-nav-right">
@@ -156,24 +153,24 @@
     <img class="site-author-image" itemprop="image" alt="WinFord"
       src="/images/apple-touch-icon-next.png">
   <p class="site-author-name" itemprop="name">WinFord</p>
-  <div class="site-description" itemprop="description">那场寒冬，毁了我的大厂梦</div>
+  <div class="site-description" itemprop="description">轻轻松松狠赚笔</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -244,12 +241,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WinFord">
-      <meta itemprop="description" content="那场寒冬，毁了我的大厂梦">
+      <meta itemprop="name" content="狠赚笔">
+      <meta itemprop="description" content="轻轻松松狠赚笔">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Java多线程与并发编程 | WinFord">
+      <meta itemprop="name" content="Java多线程与并发编程 | 狠赚笔">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -272,7 +269,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-10 23:25:36" itemprop="dateModified" datetime="2024-01-10T23:25:36+08:00">2024-01-10</time>
+      <time title="修改时间：2024-01-12 22:00:29" itemprop="dateModified" datetime="2024-01-12T22:00:29+08:00">2024-01-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -290,7 +287,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">本文字数：</span>
-      <span>1.2k</span>
+      <span>1.3k</span>
     </span>
     <span class="post-meta-item" title="阅读时长">
       <span class="post-meta-item-icon">
@@ -308,7 +305,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
+        <pre class="mermaid">graph LR;
+并发-->线程安全
+线程安全-->三大特性
+线程安全-->volatile
+并发-->锁
+锁-->sychronized</pre>
+
+<span id="more"></span>
 
 <h1 id="1-线程安全"><a href="#1-线程安全" class="headerlink" title="1.线程安全"></a>1.线程安全</h1><h2 id="1-1概念"><a href="#1-1概念" class="headerlink" title="1.1概念"></a>1.1概念</h2><p><strong>在拥有共享数据的多条线程并行执行的程序中，线程 安全的代码会通过同步机制保证各个线程都可以正常 且正确的执行，不会出现数据污染等意外情况。</strong></p>
 <h2 id="1-2-线程安全三大特性"><a href="#1-2-线程安全三大特性" class="headerlink" title="1.2 线程安全三大特性"></a>1.2 线程安全三大特性</h2><ul>
@@ -362,14 +366,7 @@
 <td>企业级应用，推荐使用</td>
 </tr>
 </tbody></table>
-<h1 id="4-JVM内存模型"><a href="#4-JVM内存模型" class="headerlink" title="4.JVM内存模型"></a>4.JVM内存模型</h1><img style="width:800px" data-src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230609012225.png">
-
-<img style="width:800px" data-src="http://beijing-syf.oss-cn-beijing.aliyuncs.com/notebook/20230609012247.png">
-
-<ol start="5">
-<li></li>
-</ol>
-
+<h1 id="4-JVM内存模型"><a href="#4-JVM内存模型" class="headerlink" title="4.JVM内存模型"></a>4.JVM内存模型</h1>
     </div>
 
     
@@ -429,8 +426,8 @@
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/06/08/%E5%89%8D%E7%AB%AF/CSS/" rel="next" title="CSS">
-                  CSS <i class="fa fa-chevron-right"></i>
+                <a href="/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/" rel="next" title="MySQL之索引">
+                  MySQL之索引 <i class="fa fa-chevron-right"></i>
                 </a>
             </div>
           </div>
@@ -469,13 +466,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">18k</span>
+    <span title="站点总字数">14k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
   </span>
 </div>
   <div class="powered-by">

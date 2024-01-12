@@ -20,15 +20,15 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yingfansong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="1.脑图graph LR     集合--&gt;Collection     集合--&gt;Map          Collection--&gt;List     Collection--&gt;Set          Map--&gt;Hashtable     Map--&gt;HashMap     Map--&gt;TreeMap     Map--&gt;IdentityHashMap          List--&gt;V">
+    <meta name="description" content="graph LR     集合--&gt;Collection     集合--&gt;Map          Collection--&gt;List     Collection--&gt;Set          Map--&gt;Hashtable     Map--&gt;HashMap     Map--&gt;TreeMap     Map--&gt;IdentityHashMap          List--&gt;Vector">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java集合">
 <meta property="og:url" content="https://yingfansong.github.io/2023/05/19/Java/%E9%9B%86%E5%90%88/index.html">
-<meta property="og:site_name" content="WinFord">
-<meta property="og:description" content="1.脑图graph LR     集合--&gt;Collection     集合--&gt;Map          Collection--&gt;List     Collection--&gt;Set          Map--&gt;Hashtable     Map--&gt;HashMap     Map--&gt;TreeMap     Map--&gt;IdentityHashMap          List--&gt;V">
+<meta property="og:site_name" content="狠赚笔">
+<meta property="og:description" content="graph LR     集合--&gt;Collection     集合--&gt;Map          Collection--&gt;List     Collection--&gt;Set          Map--&gt;Hashtable     Map--&gt;HashMap     Map--&gt;TreeMap     Map--&gt;IdentityHashMap          List--&gt;Vector">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-05-19T09:48:00.000Z">
-<meta property="article:modified_time" content="2024-01-10T15:25:30.232Z">
+<meta property="article:modified_time" content="2024-01-12T13:58:34.745Z">
 <meta property="article:author" content="WinFord">
 <meta property="article:tag" content="Java集合">
 <meta property="article:tag" content="集合">
@@ -42,7 +42,7 @@
 <script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yingfansong.github.io/2023/05/19/Java/%E9%9B%86%E5%90%88/","path":"2023/05/19/Java/集合/","title":"Java集合"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>Java集合 | WinFord</title>
+<title>Java集合 | 狠赚笔</title>
   
 
 
@@ -76,10 +76,10 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <p class="site-title">WinFord</p>
+      <p class="site-title">狠赚笔</p>
       <i class="logo-line"></i>
     </a>
-      <p class="site-subtitle" itemprop="description">无志之人常立志，有志之人立长志</p>
+      <p class="site-subtitle" itemprop="description">简简单单敲代码</p>
   </div>
 
   <div class="site-nav-right">
@@ -143,7 +143,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E8%84%91%E5%9B%BE"><span class="nav-number">1.</span> <span class="nav-text">1.脑图</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-List%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">2.List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-List%E7%9A%84%E7%AC%AC%E4%B8%80%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">2.1 List的第一代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Vector%EF%BC%9A"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">Vector：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-List%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">2.2 List的第二代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList"><span class="nav-number">2.2.0.0.1.</span> <span class="nav-text">ArrayList:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LinkedList"><span class="nav-number">2.2.0.0.2.</span> <span class="nav-text">LinkedList:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-List%E7%9A%84%E7%AC%AC%E4%B8%89%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.3.</span> <span class="nav-text">2.3 List的第三代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">2.3.0.0.1.</span> <span class="nav-text">CopyOnWriteArrayList:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%85%AB%E8%82%A1%E6%96%87"><span class="nav-number">2.4.</span> <span class="nav-text">2.4 八股文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E5%92%8CVector%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.0.0.1.</span> <span class="nav-text">问：ArrayList和Vector有何区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E5%92%8CLinkedList%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB"><span class="nav-number">2.4.0.0.2.</span> <span class="nav-text">问：ArrayList和LinkedList有啥区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%9A%84"><span class="nav-number">2.4.0.0.3.</span> <span class="nav-text">问：ArrayList的扩容机制是怎么样的</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Map%E6%8E%A5%E5%8F%A3"><span class="nav-number">3.</span> <span class="nav-text">3.Map接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Map%E7%AC%AC%E4%B8%80%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 Map第一代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashTable%EF%BC%9A"><span class="nav-number">3.1.0.0.1.</span> <span class="nav-text">HashTable：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Map%E7%AC%AC%E4%BA%8C%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 Map第二代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap"><span class="nav-number">3.2.0.0.1.</span> <span class="nav-text">HashMap:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Map%E7%AC%AC%E4%B8%89%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">3.3.</span> <span class="nav-text">3.3 Map第三代集合类</span></a></li></ol></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2-List%E6%8E%A5%E5%8F%A3"><span class="nav-number">1.</span> <span class="nav-text">2.List接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1-List%E7%9A%84%E7%AC%AC%E4%B8%80%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">1.1.</span> <span class="nav-text">2.1 List的第一代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Vector%EF%BC%9A"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">Vector：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-2-List%E7%9A%84%E7%AC%AC%E4%BA%8C%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">1.2.</span> <span class="nav-text">2.2 List的第二代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.2.0.0.1.</span> <span class="nav-text">ArrayList:</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.2.0.0.2.</span> <span class="nav-text">LinkedList:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-3-List%E7%9A%84%E7%AC%AC%E4%B8%89%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">1.3.</span> <span class="nav-text">2.3 List的第三代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#CopyOnWriteArrayList"><span class="nav-number">1.3.0.0.1.</span> <span class="nav-text">CopyOnWriteArrayList:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-4-%E5%85%AB%E8%82%A1%E6%96%87"><span class="nav-number">1.4.</span> <span class="nav-text">2.4 八股文</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E5%92%8CVector%E6%9C%89%E4%BD%95%E5%8C%BA%E5%88%AB"><span class="nav-number">1.4.0.0.1.</span> <span class="nav-text">问：ArrayList和Vector有何区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E5%92%8CLinkedList%E6%9C%89%E5%95%A5%E5%8C%BA%E5%88%AB"><span class="nav-number">1.4.0.0.2.</span> <span class="nav-text">问：ArrayList和LinkedList有啥区别</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E9%97%AE%EF%BC%9AArrayList%E7%9A%84%E6%89%A9%E5%AE%B9%E6%9C%BA%E5%88%B6%E6%98%AF%E6%80%8E%E4%B9%88%E6%A0%B7%E7%9A%84"><span class="nav-number">1.4.0.0.3.</span> <span class="nav-text">问：ArrayList的扩容机制是怎么样的</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-Map%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">3.Map接口</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#3-1-Map%E7%AC%AC%E4%B8%80%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.1.</span> <span class="nav-text">3.1 Map第一代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashTable%EF%BC%9A"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">HashTable：</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-2-Map%E7%AC%AC%E4%BA%8C%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.2.</span> <span class="nav-text">3.2 Map第二代集合类</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashMap"><span class="nav-number">2.2.0.0.1.</span> <span class="nav-text">HashMap:</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-3-Map%E7%AC%AC%E4%B8%89%E4%BB%A3%E9%9B%86%E5%90%88%E7%B1%BB"><span class="nav-number">2.3.</span> <span class="nav-text">3.3 Map第三代集合类</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -152,24 +152,24 @@
     <img class="site-author-image" itemprop="image" alt="WinFord"
       src="/images/apple-touch-icon-next.png">
   <p class="site-author-name" itemprop="name">WinFord</p>
-  <div class="site-description" itemprop="description">那场寒冬，毁了我的大厂梦</div>
+  <div class="site-description" itemprop="description">轻轻松松狠赚笔</div>
 </div>
 <div class="site-state-wrap animated">
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">11</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">14</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">25</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -240,12 +240,12 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="WinFord">
-      <meta itemprop="description" content="那场寒冬，毁了我的大厂梦">
+      <meta itemprop="name" content="狠赚笔">
+      <meta itemprop="description" content="轻轻松松狠赚笔">
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="Java集合 | WinFord">
+      <meta itemprop="name" content="Java集合 | 狠赚笔">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
@@ -268,7 +268,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2024-01-10 23:25:30" itemprop="dateModified" datetime="2024-01-10T23:25:30+08:00">2024-01-10</time>
+      <time title="修改时间：2024-01-12 21:58:34" itemprop="dateModified" datetime="2024-01-12T21:58:34+08:00">2024-01-12</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -304,9 +304,7 @@
     
     
     <div class="post-body" itemprop="articleBody">
-        <span id="more"></span>
-
-<h1 id="1-脑图"><a href="#1-脑图" class="headerlink" title="1.脑图"></a>1.脑图</h1><pre class="mermaid">graph LR
+        <pre class="mermaid">graph LR
     集合-->Collection
     集合-->Map
     
@@ -331,7 +329,7 @@
     Vector-->Stack 
     HashSet-->LinkedhashSet</pre>
 
-
+<span id="more"></span>
 
 <h1 id="2-List接口"><a href="#2-List接口" class="headerlink" title="2.List接口"></a>2.List接口</h1><h2 id="2-1-List的第一代集合类"><a href="#2-1-List的第一代集合类" class="headerlink" title="2.1 List的第一代集合类"></a>2.1 List的第一代集合类</h2><h5 id="Vector："><a href="#Vector：" class="headerlink" title="Vector："></a>Vector：</h5><ul>
 <li>第一代集合类，线程安全，类似于是把ArrayList的所有public方法都加上synchronized锁</li>
@@ -495,13 +493,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="站点总字数">18k</span>
+    <span title="站点总字数">14k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="站点阅读时长">16 分钟</span>
+    <span title="站点阅读时长">13 分钟</span>
   </span>
 </div>
   <div class="powered-by">

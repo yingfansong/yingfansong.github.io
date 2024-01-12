@@ -20,25 +20,27 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"yingfansong.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.15.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":true,"style":"mac"},"bookmark":{"enable":true,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="轻轻松松狠赚笔">
-<meta property="og:type" content="website">
-<meta property="og:title" content="狠赚笔">
-<meta property="og:url" content="https://yingfansong.github.io/archives/2024/index.html">
+    <meta name="description" content="graph LR; 索引--&gt;索引的数据结构">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MySQL之索引">
+<meta property="og:url" content="https://yingfansong.github.io/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/index.html">
 <meta property="og:site_name" content="狠赚笔">
-<meta property="og:description" content="轻轻松松狠赚笔">
+<meta property="og:description" content="graph LR; 索引--&gt;索引的数据结构">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-06-08T15:37:00.000Z">
+<meta property="article:modified_time" content="2024-01-12T13:49:56.722Z">
 <meta property="article:author" content="WinFord">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://yingfansong.github.io/archives/2024/">
+<link rel="canonical" href="https://yingfansong.github.io/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"archives/2024/index.html","title":""}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://yingfansong.github.io/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/","path":"2023/06/08/数据库/MySQL之索引/","title":"MySQL之索引"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>归档 | 狠赚笔</title>
+<title>MySQL之索引 | 狠赚笔</title>
   
 
 
@@ -72,7 +74,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">狠赚笔</h1>
+      <p class="site-title">狠赚笔</p>
       <i class="logo-line"></i>
     </a>
       <p class="site-subtitle" itemprop="description">简简单单敲代码</p>
@@ -126,7 +128,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -139,6 +141,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E7%B4%A2%E5%BC%95"><span class="nav-number">1.</span> <span class="nav-text">1.什么是索引</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E7%B4%A2%E5%BC%95%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%88B-%E6%A0%91%EF%BC%89"><span class="nav-number">1.1.</span> <span class="nav-text">1.1索引的数据结构（B+树）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9A%E4%B8%BA%E4%BB%80%E4%B9%88%E4%B8%8D%E7%94%A8%E4%BA%8C%E5%8F%89%E6%90%9C%E7%B4%A2%E6%A0%91%EF%BC%9F"><span class="nav-number">1.1.1.</span> <span class="nav-text">问题：为什么不用二叉搜索树？</span></a></li></ol></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -216,50 +219,173 @@
 
     </div>
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 11 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2024</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yingfansong.github.io/2023/06/08/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL%E4%B9%8B%E7%B4%A2%E5%BC%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/apple-touch-icon-next.png">
+      <meta itemprop="name" content="WinFord">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="狠赚笔">
+      <meta itemprop="description" content="轻轻松松狠赚笔">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="MySQL之索引 | 狠赚笔">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MySQL之索引
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2023-06-08 23:37:00" itemprop="dateCreated datePublished" datetime="2023-06-08T23:37:00+08:00">2023-06-08</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2024-01-12 21:49:56" itemprop="dateModified" datetime="2024-01-12T21:49:56+08:00">2024-01-12</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+          ，
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/MySQL/" itemprop="url" rel="index"><span itemprop="name">MySQL</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="本文字数">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">本文字数：</span>
+      <span>246</span>
+    </span>
+    <span class="post-meta-item" title="阅读时长">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">阅读时长 &asymp;</span>
+      <span>1 分钟</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <pre class="mermaid">graph LR;
+索引-->索引的数据结构</pre>
+
+<span id="more"></span>
+
+<h1 id="1-什么是索引"><a href="#1-什么是索引" class="headerlink" title="1.什么是索引"></a>1.什么是索引</h1><h2 id="1-1索引的数据结构（B-树）"><a href="#1-1索引的数据结构（B-树）" class="headerlink" title="1.1索引的数据结构（B+树）"></a>1.1索引的数据结构（B+树）</h2><h3 id="问题：为什么不用二叉搜索树？"><a href="#问题：为什么不用二叉搜索树？" class="headerlink" title="问题：为什么不用二叉搜索树？"></a><strong>问题：为什么不用二叉搜索树？</strong></h3><p>二叉搜索树，也是最简单的树结构。</p>
+<p><strong>主要特征</strong>：</p>
+<p>若它的左子树不空，则左子树上所有结点的值均小于它的根结点的值；<br>若它的右子树不空，则右子树上所有结点的值均大于它的根结点的值；<br>左、右子树也分别为二叉排序树；<br>那么，二叉搜索树为什么不适合用作数据库索引？</p>
+<p>(1)、当数据量大的时候，树的高度会比较高，数据量大的时候，查询会比较慢；</p>
+<p>(2)、每个节点只存储一个记录，可能导致一次查询有很多次磁盘IO；</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2024-01-10T23:38:00+08:00"
-              content="2024-01-10">
-          01-10
-        </time>
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.png" alt="WinFord 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.png" alt="WinFord 支付宝">
+        <span>支付宝</span>
       </div>
 
-      <div class="post-title">
-          <a class="post-title-link" href="/2024/01/10/%E7%AE%97%E6%B3%95/FEB/" itemprop="url">
-            <span itemprop="name">FEB</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-
-    </div>
   </div>
-  
-  
-  
+</div>
 
+          <div class="followme">
+  <span>欢迎关注我的其它发布渠道</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">WeChat</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat_channel.png">
+      </div>
+  </div>
+</div>
+
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2023/05/20/Java/JUC/" rel="prev" title="Java多线程与并发编程">
+                  <i class="fa fa-chevron-left"></i> Java多线程与并发编程
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/10/%E7%AE%97%E6%B3%95/FEB/" rel="next" title="FEB">
+                  FEB <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
 </div>
 
 
@@ -340,7 +466,7 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
 
-<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"yingfansong","repo":"yingfansong.github.io","client_id":"16c6ef56b188373e7043","client_secret":"e2b9423659e3d96b5863298864a700e4de8d6007","admin_user":"yingfansong","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","id":"location.pathname","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"b7c9b444441cde0d414df6c90e8f1139"}</script>
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"yingfansong","repo":"yingfansong.github.io","client_id":"16c6ef56b188373e7043","client_secret":"e2b9423659e3d96b5863298864a700e4de8d6007","admin_user":"yingfansong","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":"zh-CN","id":"location.pathname","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"c3c22f77dfb428b11a34f4bcd5d8d41d"}</script>
 <script src="/js/third-party/comments/gitalk.js"></script>
 
 
